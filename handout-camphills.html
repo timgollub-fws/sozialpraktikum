@@ -3,730 +3,179 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sozialpraktikum der 11. Klasse</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Sozialpraktikum der 11. Klasse – Camphill-Einrichtungen</title>
   <style>
-    :root {
-      --ink: #222;
-      --line: #c9c9c9;
-      --soft: #f3f4f2;
-      --accent: #33463a;
-      --paper: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: #e9e9e9;
-      font-family: "Source Sans 3", sans-serif;
-      font-size: 10.4pt;
-      line-height: 1.35;
-      hyphens: auto;
-    }
-
-    .print-page {
-      width: 210mm;
-      height: 297mm;
-      margin: 12mm auto;
-      padding: 15mm 18mm 14mm;
-      background: var(--paper);
-      box-shadow: 0 2mm 8mm rgba(0, 0, 0, .12);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      border-bottom: 1.5px solid var(--accent);
-      padding-bottom: 4mm;
-      margin-bottom: 5mm;
-    }
-
-    h1 {
-      margin: 0;
-      font-family: "Lora", serif;
-      font-size: 21pt;
-      line-height: 1.1;
-      font-weight: 600;
-      color: var(--accent);
-    }
-
-    .subtitle {
-      margin: 1.5mm 0 0;
-      color: var(--ink);
-      font-size: 10.5pt;
-    }
-
-    .school-logo {
-      width: 35mm;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .small-page-header {
-      font-size: 8.5pt;
-      color: #666;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 2mm;
-      margin-bottom: 4mm;
-    }
-
-    .page-content {
-      flex: 1 1 auto;
-      min-height: 0;
-      overflow: hidden;
-    }
-
-    .page-footer {
-      display: flex;
-      justify-content: space-between;
-      flex: 0 0 auto;
-      min-height: 6mm;
-      margin-top: 3mm;
-      padding-top: 2mm;
-      border-top: 1px solid var(--line);
-      color: #666;
-      font-size: 8.5pt;
-    }
-
-    .country {
-      break-inside: avoid;
-      margin: 0 0 6mm;
-    }
-
-    .country-head {
-      margin: 0;
-    }
-
-    h2 {
-      margin: 5mm 0 2mm;
-      font-family: "Lora", serif;
-      font-size: 12.5pt;
-      line-height: 1.2;
-      font-weight: 600;
-      color: var(--accent);
-      break-after: avoid;
-      page-break-after: avoid;
-    }
-
-    .country-note {
-      margin: 0 0 3mm;
-      font-size: 9.5pt;
-    }
-
-    .entry-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .entry {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 16mm;
-      gap: 4mm;
-      align-items: center;
-      padding: 2.5mm 0;
-      border-bottom: 1px solid var(--line);
-      break-inside: avoid;
-      page-break-inside: avoid;
-    }
-
-    .entry-name {
-      font-weight: 700;
-    }
-
-    .practice-note {
-      display: inline;
-      margin-left: 1mm;
-      padding: .3mm 1.4mm;
-      border: 1px solid var(--accent);
-      border-radius: 2mm;
-      color: var(--accent);
-      font-size: 8pt;
-      line-height: 1.2;
-      vertical-align: middle;
-    }
-
-    .entry-url {
-      display: block;
-      margin-top: .7mm;
-      font-size: 8.5pt;
-      color: var(--ink);
-      overflow-wrap: anywhere;
-    }
-
-    .qr {
-      width: 16mm;
-      height: 16mm;
-      image-rendering: crisp-edges;
-      visibility: hidden;
-    }
-
+    :root { --ink:#222; --line:#c9c9c9; --accent:#33463a; --paper:#fff; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#e7e7e7; color:var(--ink); font-family:Arial, Helvetica, sans-serif; }
+    .print-page { width:210mm; height:297mm; margin:10mm auto; padding:15mm 18mm 14mm; background:var(--paper); display:flex; flex-direction:column; overflow:hidden; box-shadow:0 1mm 4mm #999; }
+    header { flex:0 0 auto; border-bottom:.35mm solid var(--accent); padding-bottom:4mm; margin-bottom:4mm; }
+    header.top { position:relative; min-height:26mm; }
+    .top img { position:absolute; right:0; top:0; width:42mm; max-height:20mm; object-fit:contain; object-position:right top; }
+    h1 { margin:0; color:var(--accent); font-size:20pt; font-weight:700; }
+    .subtitle { margin-top:2mm; color:#555; font-size:11pt; }
+    .small-page-header { font-size:9pt; color:var(--accent); font-weight:700; letter-spacing:.15pt; }
+    .page-content { flex:1 1 auto; min-height:0; overflow:hidden; }
+    .country { margin:0 0 4mm; }
+    h2 { margin:0 0 1.5mm; color:var(--accent); font-size:13pt; }
+    .country-note { margin:0 0 2.5mm; font-size:9.5pt; line-height:1.35; }
+    .entry-list { list-style:none; padding:0; margin:0; }
+    .entry { display:grid; grid-template-columns:minmax(0, 1fr) 16mm; gap:4mm; align-items:center; min-height:18mm; padding:2.2mm 0; border-top:.25mm solid var(--line); }
+    .entry:first-child { border-top:0; }
+    .entry-name { font-size:10.5pt; font-weight:700; line-height:1.25; }
+    .entry-url { display:block; margin-top:1mm; font-size:8pt; color:#555; line-height:1.2; overflow-wrap:anywhere; }
+    .practice-note { display:inline-block; margin-left:1.5mm; padding:.35mm 1.1mm; border:.25mm solid var(--accent); border-radius:1.5mm; color:var(--accent); font-size:7.5pt; font-weight:700; vertical-align:middle; }
+    .qr { width:16mm; height:16mm; visibility:hidden; }
+    .page-footer { flex:0 0 auto; display:flex; justify-content:space-between; border-top:.25mm solid var(--line); padding-top:2.5mm; margin-top:3mm; color:#666; font-size:8pt; }
+    a { color:inherit; text-decoration:none; }
     @media print {
-      @page {
-        size: A4;
-        margin: 0;
-      }
-
-      body {
-        background: white;
-      }
-
-      .print-page {
-        width: 210mm;
-        height: 297mm;
-        margin: 0;
-        padding: 15mm 18mm 14mm;
-        box-shadow: none;
-        break-after: page;
-        page-break-after: always;
-      }
-
-      .print-page:last-child {
-        break-after: auto;
-        page-break-after: auto;
-      }
-
-      h1 {
-        font-size: 20pt;
-      }
-
-      h2 {
-        font-size: 14pt;
-      }
-
-      .country {
-        page-break-inside: avoid;
-      }
-
-      .qr {
-        width: 16mm;
-        height: 16mm;
-        visibility: visible;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .print-page {
-        width: 100%;
-        min-height: 100vh;
-        height: auto;
-        padding: 16px;
-      }
-
-      .entry {
-        grid-template-columns: minmax(0, 1fr) 15mm;
-      }
-
-      .qr {
-        width: 15mm;
-        height: 15mm;
-      }
+      body { background:#fff; }
+      .print-page { margin:0; box-shadow:none; page-break-after:always; break-after:page; }
+      .print-page:last-child { page-break-after:auto; break-after:auto; }
+      .qr { visibility:visible; }
     }
   </style>
 </head>
 <body>
-  <div id="content"></div>
+  <!-- UK und Irland -->
+  <section class="print-page">
+    <header class="top">
+      <h1>Sozialpraktikum der 11. Klasse</h1>
+      <div class="subtitle">Camphill-Einrichtungen</div>
+      <img src="welle-oben.png" alt="">
+    </header>
+    <main class="page-content">
+      <section class="country">
+        <h2>Schottland</h2>
+        <ul class="entry-list">
+          <li class="entry"><div><div class="entry-name">Beannachar</div><a class="entry-url" href="https://www.beannachar.co.uk">https://www.beannachar.co.uk</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLklEQVRYhdWXMQ7DIAxFP2Jg7BFylBwtHC1H4QgZGVBcf4PapspcXKRU4TWD48+3HeDfl3BVLJmbM9r2mMibXqE+JOufKyJRcsmTSND4pWHZz3jojQPOOEV2eOfAFit1n8+7vmVDKje6u+HdL8pjpe5fPvo9fxcQ8rvC4oMz3iB97aHZi3jk0POpSi+5pQJRjrm8WayH1efVoo2v+uyJ80QCD/5gZT6HX2bxIa1kJpZC5w8feeJ1kVMj3iyxH+dzEtd21n2h26vu7riWF+1rfEDjZ2Jn8yHrELoBDnlf6hc7ANCXgEtuMVezc7E5IV/74K95nwfGTY8zueR93tMeIsX8woF5Phf2tdXmvZFPn5zznvUSLYxpKseYP/m9wzojcMlffon8vjAji0f+3+sJ1ClMDS3FyMEAAAAASUVORK5CYII=" alt="QR-Code für Beannachar"></li>
+          <li class="entry"><div><div class="entry-name">Blair Drummond</div><a class="entry-url" href="https://www.camphillblairdrummond.org.uk">https://www.camphillblairdrummond.org.uk</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABhUlEQVRYhdWXQY6DMAxFf8UiyxwhN2kuhqDVXIzeJEdgyQLh+XbCtNWswa0liHiwiPy/HQN8ewhjA9Z0Qw6yRn2eT+ALryFMK0aZQkGcgM6VJ5kHrumuT318iJzHmZi0RVnS7TM4MpOELNTLnZte0qlv/ut4HDff0ifUK4fSv/vZgdfIUngDi+k9zue6rZEalXFmDrv5Gsp6Bl/45r7A8oPEr5ZdRyeeELW/4SKTlO5PKi8uRURV2v2z7fk8mDMd9C37Cd26qE+CwJOrYS0GRSKPppcXD6X1ma22mGvb59FcuFxo3nLR/tYj08OeXO0yWJripHo99+/DWTty0367odV1ajoey+3cQbY5RLSOkJqfnXhdbJ/qpV0vNw5wMMnab3U20Lztc+OhvJrFvMFhpGd7FVfe5gGaKAqSzUXVt068+kfrWs/BVWt8PYXbvDp1xb4Znzr6cpb0bMMR+8kHcNG6Fv2/oHwveTuQw84d6H8EML7MaT68+lZaXf8wSa9+Pp9/d/wCQZJqwFOa5E8AAAAASUVORK5CYII=" alt="QR-Code für Blair Drummond"></li>
+          <li class="entry"><div><div class="entry-name">Corbenic Camphill Community <span class="practice-note">2026</span></div><a class="entry-url" href="https://www.corbeniccamphill.co.uk">https://www.corbeniccamphill.co.uk</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABgElEQVRYhdWXy43DMAxEafigo0pgJ1FjQWxjG1M6UQk66iCYy4/z27vMDYE48ctlIJLjMcC3F3HtAB2JMlGPcl9P4I0/t5A7LEQA15gBZleOVG/8jbsgiHei83igjhvl9l84JJFIgN2fa79ophUglL99HMd1bnlOcKtJ+Mc8O3CrRGViLmI/6nwusniF5qJnONdLKP0M3qDD1B5+wtUefXTiCFH8TfwklOXZKi8uxzRRZp/h37TG/Ti30bzBw0+q7hT/CZ48FIhbSza8XPejX16cdfJzMLHPRJK93l/6h3IekbgyL5M879hcZZAdudwtjbkgXOFy6PTjc2WJvNc1aT5pePj/WG77y3Oy8DKJvwFaH724XlPnvWafV3/rvnyWvQbdaxSOR24cy7VCttkoV/Y6cuWWB/iyPnPRMbc+XPOSSNQ8oM/EV54fyS2vUtHzWaRfNie+HGyv1U/edTpxe69p+CPte9M5kIO+T1ke4Bzyymk+3OY223uN6QRP/t31Czobr85QjE7LAAAAAElFTkSuQmCC" alt="QR-Code für Corbenic"></li>
+          <li class="entry"><div><div class="entry-name">Garvald Home Farm <span class="practice-note">2026</span></div><a class="entry-url" href="https://garvaldhomefarm.co.uk">https://garvaldhomefarm.co.uk</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABMklEQVRYhdWXQa7DIAxEB7HIMkfgKDlaORpH4QhdZoHiPzb8tkn3wbUEgqcsBhtjB/h1E7WdiygVR7TtcyJvHGFf6wNIckRFi0u+iATVL3sq5EmaA76aHwu8c6Ssjv0+1/28x1eyxhdfcXfDe77wHkaL+yWP7ufDqNHG1dxw1Rs4MhYpodlBvPID3Nr95AJzOeeNOimPH0CnaHH3x1OxQFP/RlpHvszibfhUeqCfKb/rmidOxRvAd0aLsHzewzl81Iuq6+0jvg55YaRZPrQf0IO8+oE5nCOM8BadrMD5491W3ar+y+Pth5tw7VuwVOsT8qkO3s57P8C+RfPFdEaf/L/fiyP49sF8nhv9qe+eyEmnM279lQR693Hqn+/n6P870Lwwg0s+8qXCSi/sR8Mj/237A/WkMW0gdu5uAAAAAElFTkSuQmCC" alt="QR-Code für Garvald Home Farm"></li>
+          <li class="entry"><div><div class="entry-name">Garvald West Linton <span class="practice-note">2026</span></div><a class="entry-url" href="https://garvaldwestlinton.org.uk">https://garvaldwestlinton.org.uk</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLUlEQVRYhdWXO47EIBBEGzkg9BE4CkcbjuajcIQNCZB7qxp2fjux6WlpLHiaoNxFARb59lJW46Cl49xs+rOQd/xC2+tNYs3nRhRd8qgamqTSJSl40u6AQydbKd45tEP/8eG9LufDX9WtWT/ffHfDR17Yz085up7PShbi89+24oZTb1BlfjHq9iI+eYXTePRYoX+vsppbXkZPhb5v9/Xgi1M/4yySdc4Wcu4zSEgqw2gbeORQnNnLQt9f1+ESbvsz5GHfk/zkrztOsZYXnr+ya3ns24t4Djrq4KPYP93xUbCbC+C0ELvkJnzeW+yeUN7PwWv5uA+I3DgYOqNLPu97Mr2H7z4473sW5Lk+fXLEGa0MnY191n89l/m9M881ffHdD//LCwcHgsypR/7d9QvutUwK3pvC8wAAAABJRU5ErkJggg==" alt="QR-Code für Garvald West Linton"></li>
+          <li class="entry"><div><div class="entry-name">Loch Arthur</div><a class="entry-url" href="https://www.locharthur.org.uk">https://www.locharthur.org.uk</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABNUlEQVRYhdWWsa3DMAxEabhQ6RE8ikeLRtMoGiGlC8GXO8o/iP//tcUQsEG9itLpKJp9e0CxM5n3tRyzL58DeeM37Ut9WKrbMQulkDwBk+rnJjabnytaAL74OSI8tzU3k+7jedcX2WxVnb90D8O7X3gP//XR/fwM1mi8h38iDFe9E79sCWVqvpGInEscxmVL1UBuYzn/26k7E8XsuofjqHYk/tw4qr/7ZRjf1ZrPvudCAxG53t6Dfsmgr/FxPwdx9WeoP8vDH/qG41zKL0pUv4w8lCeXlbYFisrMzSwg77FoqY30Rh2Qu9Tyixucc0K+vIO38z4PuF+6cd73MBj/mfeMc7LrjrevR/LMd63PybjUGYxXPcSF52mPy/x8P7c+f4LJpj4DC8lPv1QlRUbGdV6Nwr87XgAyNjqCih1YAAAAAElFTkSuQmCC" alt="QR-Code für Loch Arthur"></li>
+          <li class="entry"><div><div class="entry-name">Newton Dee Village <span class="practice-note">2025</span><span class="practice-note">2026</span></div><a class="entry-url" href="https://www.newtondee.org.uk">https://www.newtondee.org.uk</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABM0lEQVRYhdWXMa6EMAxEjVKk5AgchaORo+UoOQJligj/mTj7V2i3Jl5LSPBEMdgex4j8eiijypYkFrlCfzwn8oZrqasmgisQRZc8qi7Qr3wBHDcOuOnM4p2LHKF++67nudW3HIKcykfd3XDzC3ioW/7w0fP8PUCq7Ne3weKDU++ir2j9QzzyoGW/4rklNgC5zOUtFqHOxD7sEWw+O+OKthRZVcFz1z/8Mokje7ty7kk0mcn84o0znxf1v+p+vOs+h1Mc+hBz5l53bxyVFshu7MPWEzuV43GhToWRe32ZWH/cYiUpnM843FzyXura7ayZe0K6n4NPc9sHxo3pjC752PfUVgTOmX9fT+Uwzt73PdXTL8exiz2Ze8tx25+f52L/O2hGmzMqLvnwSz/X8jCyR/7b8QftVnkGdS0pXgAAAABJRU5ErkJggg==" alt="QR-Code für Newton Dee"></li>
+          <li class="entry"><div><div class="entry-name">Tiphereth</div><a class="entry-url" href="https://www.tiphereth.org.uk">https://www.tiphereth.org.uk</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABNklEQVRYhdWWQa6DMAxEHWWRZY/AUTgaORpHyRG6ZBHhztip2v7fNXEtgcITC4M9Y4v8eijjkKWKLPuZ7fE+kXdc6bhpVW3rmYlKSF5UE/JXvECOQwBueapKdC6yZdz+f9f13OvbNvQh8/xT9zDc9QKejy86up6/DORAnt+MJQZnvkk99tTtQyJy9OcuAr10+KGCy1xOuzP9sg8t4Tz6IRa3KPQY+CH/59DLLI6ZJknvmGvFi1yHjsLxRU9kvPXSRN/6cxLnOGOeisdVX/WNyE9B2t3rjoYsUznLCn+mQMxcahcJyD1uJNijbLiF5FZq8xkYI/eE+jEHL+e+D2BP5sHzLCG573uQsz595jlfpnIc2mr75/ifMTnthYNYaIxTufj+SaPmPqAqIfnQS+MQ3oeQI/LfjgcO1iz+IwOTTgAAAABJRU5ErkJggg==" alt="QR-Code für Tiphereth"></li>
+        </ul>
+      </section>
+    </main>
+    <footer class="page-footer"><span>Stand: 1. September 2026</span><span>Seite 1 von 7</span></footer>
+  </section>
 
-  <script>
-    const allCountries = [
-      {
-        name: "Deutschland",
-        entries: [
-          ["Camphill Dorfgemeinschaft Hausenhof", "https://www.hausenhof.de"],
-          ["Camphill Dorfgemeinschaft Hermannsberg", "https://www.hermannsberg.de"],
-          ["Camphill Dorfgemeinschaft Lehenhof", "https://www.lehenhof.de"],
-          ["Camphill Dorfgemeinschaft Sellen e.V.", "https://www.camphill-steinfurt.de"],
-          ["Camphill Lebensgemeinschaft Königsmühle", "https://www.camphill-rheinland-pfalz.de"],
-          ["Camphill Schulgemeinschaft Bruckfelden", "https://www.camphill-bruckfelden.de"],
-          ["Camphill Schulgemeinschaft Föhrenbühl", "https://camphill-schulgemeinschaften.de"],
-          ["Camphill Schulgemeinschaft und Hofgut Brachenreuthe", "https://www.brachenreuthe.de"],
-          ["Lebensgemeinschaft Alt-Schönow", "https://www.camphill-alt-schoenow.de"],
-          ["Markus Gemeinschaft e.V. und Gutshof Hauteroda", "https://www.markus-gemeinschaft.de"]
-        ]
-      },
-      {
-        name: "Österreich",
-        entries: [
-          ["Camphill Liebenfels", "https://www.camphill.at"]
-        ]
-      },
-      {
-        name: "Schweiz",
-        entries: [
-          ["Camphill Oberdorf", "https://www.vstmichael.ch/erwachsene/oberdorf"],
-          ["Stiftung Humanus-Haus", "https://www.humanushaus.ch"]
-        ]
-      },
-      {
-        name: "Irland",
-        entries: [
-          ["Camphill Ballybay", "https://www.camphill.ie"],
-          ["Camphill Ballymoney", "https://www.camphill.ie"],
-          ["The Bridge", "https://www.camphill.ie"],
-          ["Camphill Callan", "https://www.camphill.ie"],
-          ["Camphill Carrick-on-Suir", "https://www.camphill.ie"],
-          ["Journeyman Programme", "https://www.camphill.ie"],
-          ["Camphill Dingle", "https://www.camphill.ie"],
-          ["Camphill Duffcarrig", "https://www.camphill.ie"],
-          ["Camphill Dunshane", "https://www.camphill.ie"],
-          ["Camphill Grangebeg", "https://www.camphill.ie"],
-          ["Camphill Grangemockler", "https://www.camphill.ie"],
-          ["Camphill Greenacres", "https://www.camphill.ie"],
-          ["Camphill Jerpoint", "https://www.camphill.ie"],
-          ["KCAT", "https://www.camphill.ie"],
-          ["Camphill Kyle", "https://www.camphill.ie"],
-          ["Camphill Mountshannon", "https://www.camphill.ie"],
-          ["Camphill Thomastown", "https://www.camphill.ie"]
-        ]
-      },
-      {
-        name: "Vereinigtes Königreich - Schottland",
-        entries: [
-          ["Beannachar", "https://www.beannachar.co.uk"],
-          ["Blair Drummond", "https://www.camphillblairdrummond.org.uk"],
-          ["Corbenic Camphill Community", "https://www.corbeniccamphill.co.uk"],
-          ["Garvald Home Farm", "https://garvaldhomefarm.co.uk"],
-          ["Garvald West Linton", "https://garvaldwestlinton.org.uk"],
-          ["Loch Arthur", "https://www.locharthur.org.uk"],
-          ["Newton Dee Village", "https://www.newtondee.org.uk"],
-          ["Tiphereth", "https://www.tiphereth.org.uk"]
-        ]
-      },
-      {
-        name: "Vereinigtes Königreich - England",
-        entries: [
-          ["Camphill Communities East Anglia", "https://www.camphill.org.uk"],
-          ["Camphill Devon", "https://www.camphilldevon.org.uk"],
-          ["Camphill Milton Keynes", "https://www.camphillmk.co.uk"],
-          ["Cherry Orchards", "https://www.cherryorchards.co.uk"],
-          ["Esk Valley Camphill", "https://eskvalleycamphill.org"],
-          ["Gannicox Community", "https://www.camphill.org.uk"],
-          ["Hatch Camphill Community", "https://hatchcommunity.org.uk"],
-          ["Lantern Community", "https://www.lanterncommunity.org.uk"],
-          ["Orchard Leigh Camphill Community", "https://orchardleigh.org"],
-          ["Pennine Camphill Community", "https://web.archive.org"],
-          ["The Sheiling Ringwood", "https://www.thesheilingringwood.co.uk"],
-          ["Sheiling School, Thornbury", "https://www.sheilingschool.org.uk"],
-          ["Sturts Farm", "https://www.sturtsfarm.com"],
-          ["The Mount Camphill Community", "https://www.mountcamphill.org"],
-          ["William Morris House", "https://www.camphill.org.uk"]
-        ]
-      },
-      {
-        name: "Vereinigtes Königreich - Wales",
-        entries: [
-          ["Coleg Elidyr", "https://www.colegelidyr.com"],
-          ["Victoria House", "https://colegelidyr.com"],
-          ["Glasallt Fawr", "https://www.glasallt-fawr.com"]
-        ]
-      },
-      {
-        name: "Vereinigtes Königreich - Nordirland",
-        entries: [
-          ["Community Glencraig", "https://www.glencraig.org.uk"],
-          ["Community Holywood", "https://www.camphillholywood.co.uk"],
-          ["Community Mourne Grange", "https://camphillmournegrange.org/"],
-          ["Community Clanabogan", "https://www.camphillclanabogan.com"]
-        ]
-      },
-      {
-        name: "USA",
-        entries: [
-          ["Camphill Village Copake", "https://camphill.org/communities/camphill-village-copake/"],
-          ["Camphill California", "https://camphill.org/communities/camphill-california/"],
-          ["Camphill Hudson", "https://camphill.org/communities/camphill-hudson/"],
-          ["Triform Camphill", "https://camphill.org/communities/triform-camphill/"],
-          ["The Camphill School & Transition Program", "https://camphill.org/communities/the-camphill-school/"],
-          ["Heartbeet Lifesharing", "https://camphill.org/communities/heartbeet-lifesharing/"],
-          ["Camphill Minnesota", "https://camphill.org/communities/camphill-minnesota/"],
-          ["Kimberton Hills", "https://camphill.org/communities/kimberton-hills/"],
-          ["Plowshare Farm", "https://camphill.org/communities/plowshare-farm/"],
-          ["Camphill Ghent", "https://camphill.org/communities/camphill-ghent/"],
-          ["Raphael Village", "https://camphill.org/communities/raphael-village/"],
-          ["Camphill Soltane", "https://camphill.org/communities/camphill-soltane/"]
-        ]
-      },
-      {
-        name: "Kanada",
-        entries: [
-          ["Glenora Farm", "https://camphill.org/communities/glenora-farm/"],
-          ["The Cascadia Society", "https://camphill.org/communities/the-cascadia-society/"],
-          ["Camphill Ontario", "https://camphill.org/communities/camphill-ontario/"]
-        ]
-      },
-      {
-        name: "Finnland",
-        entries: [
-          ["Myllylähde yhteisö", "https://camphillfoundation.org/international-communities/"],
-          ["Sylvia-koti", "https://www.sylvia-koti.fi"],
-          ["Tapolan kyläyhteisö", "https://www.tapola-camphill.fi"],
-          ["Kaupunkikylä", "https://www.kaupunkikyla.fi"]
-        ]
-      },
-      {
-        name: "Norwegen",
-        entries: [
-          ["Hogganvik Landsby", "https://hogganvik.camphill.no"],
-          ["Jøssåsen Landsby", "https://www.jossasen.no"],
-          ["Rotvoll", "https://rotvoll.camphill.no"],
-          ["Solborg", "https://solborg.camphill.no"],
-          ["Vallersund Gård", "https://vallersund.camphill.no"],
-          ["Vidaråsen Landsby", "https://vidarasen.camphill.no"]
-        ]
-      },
-      {
-        name: "Niederlande",
-        entries: [
-          ["Christophorus", "https://www.amerpoort.nl"],
-          ["Het Maartenhuis", "https://www.maartenhuis.nl"],
-          ["De Noorderhoeve", "https://www.noorderhoeve.nl"]
-        ]
-      },
-      {
-        name: "Portugal",
-        entries: [
-          ["Casa de Santa Isabel", "https://www.casasantaisabel.org"],
-        ]
-      },
-      {
-        name: "Schweden",
-        entries: [
-          ["Camphill Häggatorp", "https://www.camphillhaggatorp.se"],
-          ["Staffansgården", "https://www.staffansgarden.com"]
-        ]
-      },
-      {
-        name: "Tschechien",
-        entries: [
-          ["Camphill České Kopisty", "https://www.camphill.cz"]
-        ]
-      },
-      {
-        name: "Dänemark",
-        entries: [
-          ["DNS - The Necessary Teacher Training College", "https://www.dns-tvind.dk", "camphill-inspiriert"]
-        ]
-      },
-      {
-        name: "Estland",
-        entries: [
-          ["Pahkla Camphilli Küla", "https://pahklack.org"]
-        ]
-      },
-      {
-        name: "Frankreich",
-        entries: [
-          ["Foyer de Vie: Le Béal", "https://www.lebeal.org"]
-        ]
-      },
-      {
-        name: "Ungarn",
-        entries: [
-          ["Camphill Magyarországi, Velem", "https://www.camphill.hu"]
-        ]
-      },
-      {
-        name: "Lettland",
-        entries: [
-          ["Camphill Village Rozkalni", "https://www.camphillrozkalni.lv"]
-        ]
-      },
-      {
-        name: "Litauen",
-        entries: [
-          ["AKVILA, Home for Social Therapy", "https://www.akvila.lt", "Affiliate"]
-        ]
-      },
-      {
-        name: "Polen",
-        entries: [
-          ["Wspólnota w Wójtówce", "https://camphillfoundation.org/international-communities/"]
-        ]
-      },
-      {
-        name: "Russland",
-        entries: [
-          ["Camphill Svetlana", "https://en.wikipedia.org/wiki/Camphill_Movement"],
-          ["Camphill Chistye Klyuchi", "https://web.archive.org"],
-          ["Tourmaline", "https://turmaline.ru", "Affiliate"]
-        ]
-      },
-      {
-        name: "Argentinien",
-        entries: [
-          ["Respirar Comunidad", "https://www.respirarcomunidad.org", "camphill-inspiriert"]
-        ]
-      },
-      {
-        name: "Kolumbien",
-        entries: [
-          ["Camphill Agualinda", "https://camphillagualinda.com"]
-        ]
-      },
-      {
-        name: "Indien",
-        entries: [
-          ["Camphill India", "https://www.friendsofcamphillindia.in"]
-        ]
-      },
-      {
-        name: "Palästina",
-        entries: [
-          ["Al-Sama Project", "https://www.facebook.com", "Camphill-Initiative"]
-        ]
-      },
-      {
-        name: "Vietnam",
-        entries: [
-          ["Tinh Truc Gia", "https://www.facebook.com"]
-        ]
-      },
-      {
-        name: "Botswana",
-        entries: [
-          ["Camphill Community Trust", "https://www.camphill.org.bw"]
-        ]
-      },
-      {
-        name: "Südafrika",
-        entries: [
-          ["Camphill Farm Community Hermanus", "https://farm.camphill-hermanus.org.za"],
-          ["Camphill School Hermanus", "https://camphillschool.org.za"],
-          ["Camphill Village West Coast", "https://www.camphill.org.za"]
-        ]
-      },
-      {
-        name: "Ruanda",
-        entries: [
-          ["Ubumwe Community Center", "https://camphillfoundation.org/international-communities/", "camphill-inspiriert"]
-        ]
-      }
-    ];
+  <section class="print-page">
+    <header><div class="small-page-header">Sozialpraktikum · 11. Klasse · Camphill-Einrichtungen</div></header>
+    <main class="page-content">
+      <section class="country"><h2>Nordirland</h2><ul class="entry-list">
+        <li class="entry"><div><div class="entry-name">Community Glencraig</div><a class="entry-url" href="https://www.glencraig.org.uk">https://www.glencraig.org.uk</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLklEQVRYhdWXQQ6DMAwEHeWQY5+Qp/A08jSewhM4cojYrm3aqmrPxFiihRGHbZzduCJ3L2jtUptIXY5sj9tA3nml/YEGrNORFZWQvACJ+qEvSN54E4CbTiA8F5kzP44A3Pu7zvye5KfvYbj7hTzvf3x0Pf8EiPJ/wRKDq94EryV1+yERudZRttp6WQXkMpZ3xrJqbLyfTG0+8zkWlwJtd4Vept/9MozzMYHrKcUb3V5+icW7xotw+2ng4LMPR3LK4/Z7GSS/dcbiFe4X7zs3ZBnN7bxQrWYQGwzCca+HEs5RbpyI3KJlNzvT4JwT2vc5eDX3eUCqLaPrLCG5z3vuF+s73NeD+aznms1753rG5BovWFT4/D0/X87F/+9wM3rOQELy0y8ag6rfjByR37ueWBoorCfqCQEAAAAASUVORK5CYII=" alt="QR-Code für Community Glencraig"></li>
+        <li class="entry"><div><div class="entry-name">Community Holywood</div><a class="entry-url" href="https://www.camphillholywood.co.uk">https://www.camphillholywood.co.uk</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABhklEQVRYhdWXQY7CMAxFf9VFlj1CbkIuVpUiLlZukiNkmUVVz7dDEcOsWw+WIOGVhRX7O7/At4cwNmCNIovIOujvcgKv/ExhWXEVAcZhAXpXHqVMXOM2LIF5PkTO4wTxJkuN8//gSNwNUuNn/g7c6iW9zEDI+Kjjcdz6ln0SbyWFPP7uZwfeIknuSvqr4vO5pkUJ9VnPMN7LJeT1DI7YC1vW5gn4JbXVy4vrcpU2T/a/wpFbBKa46WYctv3cDuaB2tmQtG9Zr5lA4Ml55Qxz2yTV0ON1SE7ceiZxzgxWr8ue5+G8L53qqLP7Dqli9eSqa96/1LXO+Rl7nl68QkpXE4+vWL348Knrg3nUOc8cKOKqOkJs+XhxbdOma5vze708+aS+0XRt5yblBG7BfGzJIzoRV64tQz8gqms0X7T3sws3v0SPpH6A9hGdNvgZvPlV8wOS9dKLrU9c+dJ0zYecJ295enF5+gHzje/5H8dh/nlVPxDy9eXTvPizb9Hea+46dOHJvzt+AITBhzf31llZAAAAAElFTkSuQmCC" alt="QR-Code für Community Holywood"></li>
+        <li class="entry"><div><div class="entry-name">Community Mourne Grange <span class="practice-note">2026</span></div><a class="entry-url" href="https://camphillmournegrange.org/">https://camphillmournegrange.org/</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABhUlEQVRYhdWXy43DMAxEx/DBR5WgTqLGgnywjTmdqAQfdTDMHdJSkOyeZSYCAjvvRIic4Rj49iM8GxLfgkyyBv2/HMALf5dJRrnp+znMwOjKoywXJMnDwmLP4SFyHGc9GUis7TM4sEaRGXH159avecWVg5Pxp4/9uM0tebwvacrn93l24O3ELczU0T8dH821LF4Z65S5xJ/lNOX1CM5HuD39hKfs/fLiIgQlmZ9MeZRHaffjw7W2W/MZ3tsg9d5686xza36ivorTJPDklLHcy+4n8tIvN05P21RAV0VqNrXOzlx1NAj9hEuYfoITPdaTs1W6B0F/s36h9dGJl4hwL+k521Ji3Ue9+ag+T/1SxswD5LUeJ25j2nTN3pW9X34cuNLfdCWXaPf2zI09eR0W6tf2L4bX/evAdWS2PZ+0XNR07cItLyGprtVzMNS9053veVXzAHOamlxcP4FDh9eWcP2u8eViutZ5Fnmtsx+H5WfTr+bVreY0L17nds8Dmk+qv3nx7z6/l7jHoOlo7CUAAAAASUVORK5CYII=" alt="QR-Code für Mourne Grange"></li>
+        <li class="entry"><div><div class="entry-name">Community Clanabogan</div><a class="entry-url" href="https://www.camphillclanabogan.com">https://www.camphillclanabogan.com</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABhUlEQVRYhdWWQY6DMAxFjVhkyRFyk8nFUAuai6U3yRFYZhHh+XZCS7sPnkaqGh4sLPvb/kTffhhnJyqeOToukzxvF/CM383FQndml2iKRKMp97zd8O93QfP0YL6OIzF+5Zj98j84BdykVMWea7145EXu80cd+3HVLXTi1y24NL/r2YDXEzgN4BLs27meS1hooTFpDsftx6VyBcedF8mPzhOcfNTRhmO00T1Tmyfjq1RGPPtxGzjKnGGZM/uRt86ck4YiusU30IljsuSioJX1HqRej2e9bLgg7B3mBS2dRM8t/t48AR39m2YKohlDLmFhD9a+Rr2OOK141TMT1k9g7Wvf9lFnjnQcPkT2zk6+xmPGaVrx0u+1e4562XF4xRyaP9G8Nd/Ylz/FIv0L3Q7n/WvAqx8QfzIhTvVF+qkVV78k7Y2+Jl9oyPTy8z25+tXISb8R8fq2jyy59jU5vMQ8OcVpxSMhxNh84zn+fpzUP0v/wrzfTz7NhlfdxuYHfmXokiX/7vMHj5qt6Jgn1DMAAAAASUVORK5CYII=" alt="QR-Code für Clanabogan"></li>
+      </ul></section>
+      <section class="country"><h2>England</h2><p class="country-note">Wir prüfen derzeit, welche Camphills in England und Wales Schüler*innen aufnehmen.</p></section>
+      <section class="country"><h2>Irland</h2><p class="country-note">Irische Camphills können derzeit leider keine internationalen Freiwilligen aufnehmen.</p></section>
+      <!-- Skandinavien -->
+      <section class="country"><h2>Schweden</h2><ul class="entry-list">
+        <li class="entry"><div><div class="entry-name">Camphill Häggatorp <span class="practice-note">2026</span></div><a class="entry-url" href="https://www.camphillhaggatorp.se">https://www.camphillhaggatorp.se</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLElEQVRYhdWWSw7DIAxEHbFg2SNwFI5Wjpaj5AhdskBxZwz9pN0Hx1Kk8FYjxoMtcvVSVrWfTfZgx8dE3vAt9bbdQ5UsgSi65FF1qZJKqEnBkzYHHDol6uqeC4/0fT4f/sq4z1/fvfCeF+vDtP7l6Hw+KjHE+f9ZccOpd8Ebwz5UbT3ILvmWd6DC/iSXuRxXucJp9CDvlBWG7754A98j4yySTf8rR5N43DLyqwUKVxjNH4+8+/5Ib98PfXg+59Hkcc5+++uPZ6F+/Oel4WI/vk/h+D7vCQU3S4s33gsxYV52hlhcctPM+cvinlCOc/Bs3vcByLP5azqjS/7a9/qKYAPFAVe+z2Pf6/3plBfmheB+1H86N39NZ+J+ogff/fCRF7zPmGsIMo8e+bXrCeBkFlB37AuGAAAAAElFTkSuQmCC" alt="QR-Code für Camphill Häggatorp"></li>
+        <li class="entry"><div><div class="entry-name">Staffansgården</div><a class="entry-url" href="https://www.staffansgarden.com">https://www.staffansgarden.com</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABKUlEQVRYhdWXwRGEIAxF43DgaAmWYmlSmqVQAkcOjNn8gDK6d4mZ0Q3v9E3MN0v09WBElqTIdTg9poEcxynPzPK7kgPyJrlnnjItXGjZD5ckMcBnDigkWeeaRPp/rvd57W/cyKvOR9/N8Dovwl1G3x9z9D7vBiJFPf5sxQyH3gk3SJ+KPohFXmAvREvAXLNwGsvRbugMjuPKVXAyyAk26JP6odazzcsw7uMKfw5no0ObF2Ncsh2KN8wL397PIVxfP+h0fUCSSY55kX0AfRf9HC7fHsXrfnJGKEQGeY25HsWfFyaTXDW3fU/3hHD7Dr7Oaz1VnhhO12mO131PxvnsO2cLnK49udXTKN/wXYPw7bY/v8+p/9+BP0tikrd50b7vaozPfdUG/3b8AMqGB15PxM3MAAAAAElFTkSuQmCC" alt="QR-Code für Staffansgården"></li>
+      </ul></section>
+    </main>
+    <footer class="page-footer"><span>Stand: 1. September 2026</span><span>Seite 2 von 7</span></footer>
+  </section>
 
-    const selectedCountries = [
-      // UK und Irland
-      ["Vereinigtes Königreich - Schottland", "Schottland"],
-      ["Vereinigtes Königreich - Nordirland", "Nordirland"],
-      ["Vereinigtes Königreich - England", "England"],
-      ["Irland", "Irland"],
+  <section class="print-page">
+    <header><div class="small-page-header">Sozialpraktikum · 11. Klasse · Camphill-Einrichtungen</div></header>
+    <main class="page-content">
+      <section class="country"><h2>Finnland</h2><ul class="entry-list">
+        <li class="entry"><div><div class="entry-name">Myllylähde yhteisö</div><a class="entry-url" href="https://camphillfoundation.org/international-communities/">https://camphillfoundation.org/international-communities/</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABsElEQVRYhdWWza2DQAyEjTjskRK2E2gMKZFobOmEEjhyQPjN2CRK7s+WslKi5eMQZzz+Efn1ozhN5qrXoCqjPPC8/yPHp6z7LHyqdpMuhT+0NJF6jIKXFyNbs/iqZy3XcErRPZO34SkyMROJnPrrou6m7jsvgZxBINuWcn59+jCS2xl0A+oVyf86gRw/X1SXDS+XzW7+Mpw/5ZiY7QslbWYvrk8wh9XoMsYFszco4vFEcyBe6tFBfwSFptIyOHTQ1UNBEiY4/pAM7i3MTce+jfqa9gSOeNDCUNeTPqt3lpffQrn/e9QXVdf1buMJHPpjNJr0Vl8qYwZHynlBt9Zb/8P1j+aQ4BKfy3J0qu8+E8ul3/B0VkZRFXV96x/OZ/rN5rL57aV/NGc/mfTEVDT9sRS4/uEcxr6kV1azN5W7f0ZzZNvmI1on875s2lI4tgAosFmlFTO77yfBnKej1bgPcOXiMpLAbf9B3jmibFLW954QyrnvNQ6NifuPFdmVwrlX899z9fnMSw73+oLfUNyax3ubj/cm1CSD2z5v9fVAaaGf5HD3m+23JsFcZczgv33+AHSTvRXzws3gAAAAAElFTkSuQmCC" alt="QR-Code für Myllylähde yhteisö"></li>
+        <li class="entry"><div><div class="entry-name">Sylvia-koti</div><a class="entry-url" href="https://www.sylvia-koti.fi">https://www.sylvia-koti.fi</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABK0lEQVRYhdWXvRGDMAyF5XPhkhEYxaPBaIziESgpfFGeJP6TGgvdkbO/NA/LehJEbw+WWKgfZfOJup0b8oonLB2P+DN/oqDkkifmAP1c8VCcsXDAobOmQu450RC5IO/tueW3DGTnecu7G271Ah6Xfvqpo+f5HsrvruKHi94gPyq96ou45JCNTMMPUyHh1JZjm0XhyFzyKnh2yKuK7Vj9UPUfddSC4zzVn6GTp2CCfXK03cRF/fByD9twnGc230tssefXF0+s9iJ+yKGiwe3zQBu+eorEpAViN9Mbp1O9yIugubnkKvzod3M//u2Dj3GbB1C/sjjpdMe3eS+uyd/uQ2su86fOe7zVr08OG8wifLjNz09zWr93pC7gz8zkkm/1gkWxQr7WkRf+7vgCkhA0iB5AuZgAAAAASUVORK5CYII=" alt="QR-Code für Sylvia-koti"></li>
+        <li class="entry"><div><div class="entry-name">Tapolan kyläyhteisö</div><a class="entry-url" href="https://www.tapola-camphill.fi">https://www.tapola-camphill.fi</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABJ0lEQVRYhdWWTQ6EIAyFa1i4nCN4FI4mR+MoHsElC+Ob10J0HPdSm2Dgc1N4/RN5u0GtcLNx7cGOa0eux6F8kEKRKEHR6JKPwFBkwsa1h5UbB1z9xCLindtmkfu9nudV32UOxd7zT3c3vOZL5fmWR8/zwxiHeb+VFTdc/R1QLQ+bXcQjlxGZC0mLIsilL7d8wTpp/kZzOGB1yZe48x+E9VDf86jPnTjDj085paYxHxY+uWkP6AZnHHbkUUNQjxE/+nrj1F2VnpvuSGc89OEsI6UVFtN3E3HIq1FuSxy9hLjk5nPRdNY+wjkhXfvg07zOA/xY/z39dMfbvHeYNZT+POmcbPMnzj7ikKO1Y5mv8/PjXI750+ozG5xL3vJF2xkHGLEA8MjfbV8Ovh5MOEiZWAAAAABJRU5ErkJggg==" alt="QR-Code für Tapolan kyläyhteisö"></li>
+        <li class="entry"><div><div class="entry-name">Kaupunkikylä</div><a class="entry-url" href="https://www.kaupunkikyla.fi">https://www.kaupunkikyla.fi</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLElEQVRYhdWWMQ6EMAwEF6WgvCfkKTyNPO2ewhOuTBHhWzuJDoWe+CylYERhvN4lwL+XaGVgD3LgDPb4mcgLz5Jfx45V5AyKVpecjwv7R8jYyKMUB/wloqN0zxETVtV9Pq/6ShI5Ntx0d8OrX7iHIcf3zUfP81YcI889Vtxw7XfhSdZ5sQ/xyFnbSaUtD5VjLhfKbfmsL1ivoe6DM66+BqztaPO85PMMToe85Vqp+sUbl2y6x1TWqnvfz0m85zNlPUZ9XXEwBlVpzZmlMKh7bk/iHKPeTxC6vgVwyGuxbR3siSG8/XDrObe11HtCuv0HH+X1PtAXQPtsfvHG230vybgPczmr3ffk4muHXEfJeWIf7s9Pc6D5l0HNfOYLLvnPL/zBqZFl9JEP/t/1BaNLc3a+tybmAAAAAElFTkSuQmCC" alt="QR-Code für Kaupunkikylä"></li>
+      </ul></section>
+      <section class="country"><h2>Norwegen</h2><p class="country-note">Für einen Aufenthalt sind Norwegischkenntnisse erforderlich.</p><ul class="entry-list">
+        <li class="entry"><div><div class="entry-name">Hogganvik Landsby</div><a class="entry-url" href="https://hogganvik.camphill.no">https://hogganvik.camphill.no</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLUlEQVRYhdWWQbLDIAiGcVxkmSN4FI8Wj+ZRcoQsXWTk8YOvadp9pMxozdcsCPAjRL9uDGtyiLxjgx0T+SkrtHXfaGHuEWhxyeUxtPECxSPx6YCvGsfqnlMq8L874JZfLlKH+TvvbrjpReowtlT7p46e58MkjLLoy9xw+BtkFdRhOPVDPHLZc19437Q+ad1pLmdpy8HyTjnIn1sc9eCLyyl30kOqSH556WgKt/xKezE7Url05IxX5F0Di7xf9TmFI57W91pSgfCVX1d8UbdZegzyLi/8zwOzuKUVe8WmF5w/bib+oz93+mjefriqpI02iDmh3O/Bp7nNA8Nd9TP65G/znlph0/VkXiCc0QAPz1zOGY5v9/n5cU503bMaUHLJh170B3MU801Hbvhv2x9Bd0ralRjTmQAAAABJRU5ErkJggg==" alt="QR-Code für Hogganvik"></li>
+        <li class="entry"><div><div class="entry-name">Jøssåsen Landsby</div><a class="entry-url" href="https://www.jossasen.no">https://www.jossasen.no</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABNklEQVRYhdWWQa6DMAxEjbLIkiNwlB4tHI2jcASWLBDTGSdtxe9fE9cSKnmraewxY/brBdVuVtI+LWfy49aRH3yGfVyL5fVxJqEckmdgoH6jfljaJhwB+AjoKsNzm2YN3xmA1/5iBu/zu+9hePUL5/BfH93PW/EabVq+10oYLr0Dn1kDgMP/SESuo35Lwmri1pfzKhffz5ZRK7W+x+KayNOa7EH6q1/68fVBnRP8RY0GInLweOaN+zDXvr/nsw+nbXGt1PJANM7PhzqtF+rH/NnbXThjySBlNPLi/T3MAvJa8osGQIvaQnJvtXIL98yinDBfvoO385oHPCdzAKTz5ZdgvOY92rnZ5aW/L5dNPLfLzYH5WqSd92nlkp/v51bzJ3wBHj6QEXnzC/X7+I3An7wahP92PQFwzFfFM42KpQAAAABJRU5ErkJggg==" alt="QR-Code für Jøssåsen"></li>
+        <li class="entry"><div><div class="entry-name">Rotvoll</div><a class="entry-url" href="https://rotvoll.camphill.no">https://rotvoll.camphill.no</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABOUlEQVRYhdWXvZGFMAyE5XHgkBJcCqXh0ijFJTgk8KDblWHuuJdjPc2Yny8SklYSIt9uSjtEtojLGe21TeQdJxxL3XBfz0iUXPKkGuC6xCPvElvW7oAvqgyley65SKrI+3w+8qtFj0w//+XdDR96QR0y7x86ep9fhjAK+EdbccPpb8ApOHvo9iEeOevzRKYtziJLlbk80j1k2vpeQFAh5OaR01sqBMJZleoZepnGx1zLavkdifbIlXIW9Jmequif+pzEUYd0z8pvpZ9Xfv3xup4JvNs+gHje+8Asrrve/cQerBbd8WFIt30IG7W45DbgbG+xvbTl8piDr/OxD9iDzbWsl1688bHv1U0v+62HmZwEfUYbG2BzzAvnL+fI9tyfX+cy/ncYw9UCKi75rRfrMxCy6lNHXvh32w9pnEpcTdv4ogAAAABJRU5ErkJggg==" alt="QR-Code für Rotvoll"></li>
+        <li class="entry"><div><div class="entry-name">Solborg</div><a class="entry-url" href="https://solborg.camphill.no">https://solborg.camphill.no</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABJUlEQVRYhdWWzQ2DMAyFHeWQIyNkFEYjozFKRuCYQ4T7bLfQ0jsxlgziUw7GL/4herqxWCNaIh571M9tIO/w0Ka64D3vUVByyRNzQOgUW14pbpm7Az4xSyrdc8qFUoXu47npy4VbljgvurvhVi+4h6L7Xx3dz9+GNBL4X1txwyXeAC/wNXT9EY9cw05seSaaKo3lYkff466FvHnkiVeyH0Fyu5KRvKc6S5/hL6F9crRlkRsHaKfzHg7kNi8azeHU1x2HI2wuKjn6YTn79hieVdbD7IA7bibxq+44RS65xvzWXfeE8jMHb+e2D5xzLfOnbzvjVi91ud6HsVzaXUVyse/xT11746z7FcBy3Z9v5mRzVnI4675HLvlRL7BVCpkvdeSEP9te0NEJLDPPuvIAAAAASUVORK5CYII=" alt="QR-Code für Solborg"></li>
+        <li class="entry"><div><div class="entry-name">Vallersund Gård <span class="practice-note">2025</span></div><a class="entry-url" href="https://vallersund.camphill.no">https://vallersund.camphill.no</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLUlEQVRYhdWXwRGEIAxFP8PBoyVQiqUtpVkKJXjk4JjNhwVn1z1LzIwjvFMk+T8IPD2EkXWx63P4st0Gcm5dntPL5yDwRJNJPom4jCA1/00XBvgsUSQB1nlZpD/fdT/v9dUGPP7V3Qaveql9uF50dD/voQkvB65hhDNfJy328iEWeZHztIVIUzwwJ4zlDPpM9JKWohff626JF3vR/AUIq/vsBnJVyCrMs5U4Vr1Y40I5o80RnP05iKs/6zGyrBmL22f51Ncc19SZf2Tdebqx+fYgPiUwz7O+O2CQ11B7KfOXDQCTvOSs8w48Z/pM/J6Dd/N6HwDq/D3zNMfrfS+9Tp/JBjjbL1QhS9O1Rd5sUA/26/58P0f/38Ei9L3Lf5AJ3vWir+KH8qMjI/zZ8QbDpQoilISX7wAAAABJRU5ErkJggg==" alt="QR-Code für Vallersund"></li>
+        <li class="entry"><div><div class="entry-name">Vidaråsen Landsby <span class="practice-note">2026</span></div><a class="entry-url" href="https://vidarasen.camphill.no">https://vidarasen.camphill.no</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABKUlEQVRYhdWXzQ2DMAyFjXLgyAgZhdHIaIzCCBxzQLh+tqvS0nNiLAXCpxxe/FeX6OnGsCqbxBsesL0jP2QNddoWGpkpAY0huXwO1Q+cac98BOCT+nGl6Jxy+X+v9tziy0XycD5vcQ/DrV4kD1PN6/lbR+25m7hR1nlrK2E49A6yim4OvUhIXmmG7EXzk6aN+nKkn+hUeTiQOWnco3EzkS1xX3HA66UXh/cGvlixeonGoRhuLLa55GcfjrLFPIA+Y0KTzwPB+IhIixuRgphbynse6MWtn3zie2hmRuNeL/jU/iyXCMlVc/W0xJxQbr+DTbnNAy7v0vfC8cu8Z3HnSgF4kcKZxZWZ+UtnNA5/zhC+/MzPrTnZ/x2yPBSVFJJ7vehr9YYTkT/bXp0dS5S+LKKfAAAAAElFTkSuQmCC" alt="QR-Code für Vidaråsen"></li>
+      </ul></section>
+    </main>
+    <footer class="page-footer"><span>Stand: 1. September 2026</span><span>Seite 3 von 7</span></footer>
+  </section>
 
-      // Skandinavien
-      ["Schweden", "Schweden"],
-      ["Finnland", "Finnland"],
-      ["Norwegen", "Norwegen"],
+  <!-- Westlich von Deutschland -->
+  <section class="print-page">
+    <header><div class="small-page-header">Sozialpraktikum · 11. Klasse · Camphill-Einrichtungen</div></header>
+    <main class="page-content">
+      <section class="country"><h2>Portugal</h2><ul class="entry-list"><li class="entry"><div><div class="entry-name">Casa de Santa Isabel</div><a class="entry-url" href="https://www.casasantaisabel.org">https://www.casasantaisabel.org</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLElEQVRYhdWWQQ7DIAwEHXHg2CfkKXlaeFqewhN6zAFl6zXQKO09OJYilVEPi5cFizy9wNplRtHFEWz5Hsi5nPZXprblCETRJY/ApPpTkXmT8NaNOOCvvLKRh3dO/TGLB978XUPV+eu7F17zQr7P21+O7uetLL/L363ih1PvpF+yH8U24pFLzMsRkQXaZyiXwVzb2H030xG67644VLpIvZ+F/fzmZQznEeQ9g16p58UXt5hQMS8cnOdwJJ9qU9Xo0193nHmpvs/ML1KfB0Zxe9dEQve3mOveeC3VXzeimxCX3DTv2l4eS84J6fIO3s7rPKBzC/j+Uuc3L754m/dO3+GBA5yTbd5r/fTKRc8hha+X+fl+bv7aOVSJxf7gkbe8mO+bBhm4zqte+LPrA+brC9w/S0N/AAAAAElFTkSuQmCC" alt="QR-Code für Casa de Santa Isabel"></li></ul></section>
+      <section class="country"><h2>Niederlande</h2><ul class="entry-list">
+        <li class="entry"><div><div class="entry-name">Christophorus</div><a class="entry-url" href="https://www.amerpoort.nl">https://www.amerpoort.nl</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLklEQVRYhdWWMbKEMAxDxVCk3CNwFI4Wjpaj5AiUFAxeyWH//8vfmng9AxNeJaLIMfDtZaoN04JUcYz+uXbkO59he9gigFEoheTJbKB+2/mQcxGAU6cWR3QO5NHke3/e/K0Z6ZPvYXjLC/m4TeVfju7nPyX+qbEE4dI76OXSd/+RkHzDLMsXYCri6Mspr0gn+16drQleA3KkyteDWwnMrr/lpRdnWy7qz973TsEROX3HkbSNW/P99xx24b6N9DbzHNoff8PxZIV5cdnyncFJnbnuWcaW95pkLrv3vWi8lcuu86FNRUjuVp/zXtGcsLzdg7fzNg8ov1w0nSkkf/luZ13PQx+u2Fb4nGy2xubmRzC/z8+3c7zmz3avmV3n0hj8zEvNyotfxJd5NQj/7noCEnBX2i5Uk98AAAAASUVORK5CYII=" alt="QR-Code für Christophorus"></li>
+        <li class="entry"><div><div class="entry-name">Het Maartenhuis</div><a class="entry-url" href="https://www.maartenhuis.nl">https://www.maartenhuis.nl</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLklEQVRYhdWXva3DMAyET1Ch8o3gUTyaNVpG8QguVQjmu5PkIH91xBBwIH9IcSF5FAP8epiiYMl6OWN7PSbyyieUP8tWFkMUSi55MgvUb5XPGQ8eHHDq1ME9B7ZoOzzwXt99A7/wXnc3vPuFPJbl9uaj7/N7xPJ5sDjh0hv00aTX9kM8coDpheZh2iGOuZw2WYMdC+ceVuuCD4ecflnPpFTyEKT/7qMpvKWx3Rej0Hn4xRlXGlV3k68f+3MS53y+hTFn7LG+3riuXWg+88C6W776YR6XL+yKXJurvfEetElNe28AuORNcxljUHtCfr4Hv837PsC9pY5BPXS6433f2/HaD5N504nYGvLwyzVeuJdCiU1TOcb/HRmZ85lLqEt++WUz6qeRzV72VSf8t+MfiLkyGX2ZNMUAAAAASUVORK5CYII=" alt="QR-Code für Het Maartenhuis"></li>
+        <li class="entry"><div><div class="entry-name">De Noorderhoeve</div><a class="entry-url" href="https://www.noorderhoeve.nl">https://www.noorderhoeve.nl</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABO0lEQVRYhdWWwY2FMAxEjXLg+EtIKZRGSqMUSuDIIWL+2A5/9y97JsYSCJ44DJl4HJGnF7R2kTnxdiR73TryymvYX+sskiFJ0RiSj8BA6ZL2jCNtGTUAfwG6lBKdSy5cz+X6X/dz9xcFWKer72G49wv3IX1fLn10P2/FZfw3VsJw1TvwKqa82o9E5KzpEM1DrKJc+nKNF+o0eZNpTeZ7NM6H5Rip3RZX9X/6pQt3eYwX/aAZHZGD62mK6+i+n/uzE2c+L7C5hlbubzjO8SHCfNYH6kc5c7sT51yDzjX1V2UWD8Bo3It2Vw8c7oKQ3KzW+evzbsvlaw7ezv08wHxW301n65do3M9763y2y6/90JEz7vZ2TsbZ1zG5MHBsEH+fn2/n4udPbYdJcwYSkv/0C3NGgxF/+ygGf3a9ATSjUhEr+xBEAAAAAElFTkSuQmCC" alt="QR-Code für De Noorderhoeve"></li>
+      </ul></section>
+      <section class="country"><h2>Frankreich</h2><p class="country-note">Für einen Aufenthalt sind gute Französischkenntnisse erforderlich.</p><ul class="entry-list"><li class="entry"><div><div class="entry-name">Foyer de Vie: Le Béal</div><a class="entry-url" href="https://www.lebeal.org">https://www.lebeal.org</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABKklEQVRYhdWWQa6DMAxEB2WR5T9CjtKjkaNxFI7AMgvEfE+MWqp2TVxLoPKUxRQz9gC/XlQ1lIq84kj9cRvId7um9sfKVngkoRySZ3Iy/bQDD6TNfgTgpnPPa3wOzInq+3ju/V1n2IHPvofh7hfjqZXlw0f382elhsfxZbAE4dI76Sbp097/SEhu9wPmF+QVNI6x3D6/RTrrRfAWkJud1W7Nw7LofZ5+GcU17uhzz3XWc69F4/C+U77m6zscx0vfF4QEv/obj/cq1Jwx/TLOUG6+sI4W+mi2/vrJaNxLNgHcOAjJu+ae98hFOaG+7cHbuecBy8maMxed4fgz79n75HX+DOYa1D1/xubUglNumd/z8+0cZ/6UTs0ZIiQ//eK5FFooX/JqAP7b9Q/k9jlRWNiRGQAAAABJRU5ErkJggg==" alt="QR-Code für Le Béal"></li></ul></section>
+      <!-- Östlich von Deutschland -->
+      <section class="country"><h2>Estland</h2><ul class="entry-list"><li class="entry"><div><div class="entry-name">Pahkla Camphilli Küla <span class="practice-note">2025</span><span class="practice-note">2026</span></div><a class="entry-url" href="https://pahklack.org">https://pahklack.org</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABM0lEQVRYhdWWQQ7DIAwEF3HgmCfkKXlaeFqewhNyzCHC3QXUqmrPxbUUBHNysHcx8O9higtrRiqosR3PifzmF67FsgCiUHLJk1lg/nZjPWo8uXHAmSc3B7xzYI/X6oL3+padfbjVj7q74V0v5Mr/Q0e/58+I13djccKVb9DC1I9wtx/xyLVW9mjWoWIpmMtBi5HPNN9TH+5x1N0bx0aFdD8M9tTLNJ6aQtZMIW8qdB56ccbNaC9Q+1lB34z+nMPvVBCUpxIml0BOl5zPWT+WDVHCSVN5u1PmSX9u5qxCO+Q9luYzbACqGS75eO8oExkj54T89g7+nPd5gHNLm/danskl7/Ne2eUz9vKZyby9syYhm2teZNS6T15smsox5s/YjdoMLvnQS59LOUeZfZlXHfD/jgcC9eh+lHu5dQAAAABJRU5ErkJggg==" alt="QR-Code für Pahkla"></li></ul></section>
+      <section class="country"><h2>Türkei</h2><ul class="entry-list"><li class="entry"><div><div class="entry-name">Kindergarten Her Çocuk Bir Evren <span class="practice-note">2025</span><span class="practice-note">2026</span></div><a class="entry-url" href="https://www.hercocukbirevren.com">https://www.hercocukbirevren.com</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABNUlEQVRYhdWWMRKDMBADj6GgzBN4ip+Gn+an+AkpKTwo0pnMQJIaLp6BxFsJS3dns39f0Fptzo2bbfTt80au7bA+qo2oaRuFppB8AgbqR7O5kPNPAP6oC8+xWHSuAKy/vut6vvu7jOuMH75H4b1eOi9fdXQ931fP4XdbCcOldwA8hxiaf0hEzndyp9tUDU0N525u6s+wqaZBYkf3PRpXXbvvfIrO89Cf7+DSyfpF7qUCZCAiZwTpO7dqODjm8x7O+CUqm7PmLI7+RuPynefJMCbqRz7m4Q5eTXNt0aG6v80sIO+LsnWwWy+ciNw1s16gWOqekE9z8HLe7wN+T+b8dZ1TSN7ve4rl2/cIvFIwJfp9b89nUG49h7Z86L+a2z4v+Ot95uR7HP6uF821okLGuY6i8P9eLwfIB6/9GKgsAAAAAElFTkSuQmCC" alt="QR-Code für Her Çocuk Bir Evren"></li></ul></section>
+    </main>
+    <footer class="page-footer"><span>Stand: 1. September 2026</span><span>Seite 4 von 7</span></footer>
+  </section>
 
-      // Westlich von Deutschland
-      ["Portugal", "Portugal"],
-      ["Niederlande", "Niederlande"],
-      ["Frankreich", "Frankreich"],
+  <section class="print-page">
+    <header><div class="small-page-header">Sozialpraktikum · 11. Klasse · Camphill-Einrichtungen</div></header>
+    <main class="page-content">
+      <section class="country"><h2>Tschechien</h2><ul class="entry-list"><li class="entry"><div><div class="entry-name">Camphill České Kopisty</div><a class="entry-url" href="https://www.camphill.cz">https://www.camphill.cz</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLklEQVRYhdWXMQ6EMAwEjVKk5Ak8haeFp/EUnnAlRYRv1w4gcT3xWULoRhR7dnYxIv9eytpFStJNjmQ/Px15xTXs41ZwnyUR5ZA8qw7QL2mfFHzSGoCPqmjlGp7LtEjm3Ptzn68u6v18zD0Md7/gHGLu64+P3uet0Eb64qfCcOodcC08AFrtj0TkjEGW5SG59OVsIydd2FOrdOZzMD6t5hDInk3/6aM+PLX5Kvtpg3a/ROM4fq5fss+9ncOOnDq3omelU2csTrHQX3ggh4qgvnO7E3dfWJ5wvvZkOO7FfQB+OWhiCclNs+172feE5fEefJn7PoC9xd6/1Hnlcyzu+94mqdnlzpmeXFUQOLbvBefIGttbymN/fptL+94xI1cTHJFfftG9GfnhoyD8v+sL+eod8agdrBkAAAAASUVORK5CYII=" alt="QR-Code für Camphill České Kopisty"></li></ul></section>
+      <section class="country"><h2>Ungarn</h2><ul class="entry-list"><li class="entry"><div><div class="entry-name">Camphill Magyarországi, Velem</div><a class="entry-url" href="https://www.camphill.hu">https://www.camphill.hu</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABMklEQVRYhdWXMRLCMAwElUnhkif4KXma/TSekidQuvAg7qR4INDHQjOBZKvDp1OEyL+XsppIWXWX52qPj4m841rabS/43mQlSiF5Ul2gX9aWFTxrD8BvqjjKe3guuUqi7/O5+6tV/Ty/fA/DPS/oQ/h+/8nR9fwoHCNz8VNhOPUuuCobQLv9kJgcbQmnbR6Sy1zO2KrPvWymI8iPgLwn6BeXvZn+MZ/ncEn7hvdaVp6nGX3kJRiHfsbE5+FHH87j8BfKio4a/kbjdJrRxZxZOgb1ux+mcPH3hdo8scEiEpB7QTb6cHsyxBKSm2bq5wP3hHp6D17O/Ty5J+PDdB55icY/9j33fcyZqXzHLfcW7HuxedHmLVhO+/P1XPz/Dm4y9xM0ZEg+8lK1eZD1nKMo/L/rBQVuIhkjH4Y3AAAAAElFTkSuQmCC" alt="QR-Code für Camphill Velem"></li></ul></section>
+      <section class="country"><h2>Lettland</h2><ul class="entry-list"><li class="entry"><div><div class="entry-name">Camphill Village Rozkalni</div><a class="entry-url" href="https://www.camphillrozkalni.lv">https://www.camphillrozkalni.lv</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABMElEQVRYhdWXTY7DIAyFjViwzBE4CkcLR+MoOcIsWaC4zzaZmbT74FqK1Hxl8eqHf0r07cESHR9GOuiM+vqzkA88oW/MsVOhKCi55Ik5dMp1UGbwzMMB344deWzuObQzi+/rufl77GT5fPPdDbd6AY89t486ep7PyFXr4iPccNEb8FRVPvSHeOSQ3k5xWvqhcFrM01GkP4vvKpWj+e6Ms9idUNMonKL6Z70s4mTfqcY2jfbI0QaLKsYcabf7uYbLa4CyPeLAP3/98b/2UsLYuP727TUcdTHnmkUdesYbt8AeJQdOHW4uuWruml5usifU2xx8nNs+YH2vqc6rXpzxa9+Ll+/sgeP6zXzyzKdTzoR7KML32/78PCfbP3XAoT/LAY981sv8fyGF/LavOuHfHS/IFB6jf0kzxwAAAABJRU5ErkJggg==" alt="QR-Code für Rozkalni"></li></ul></section>
+      <section class="country"><h2>Litauen</h2><ul class="entry-list"><li class="entry"><div><div class="entry-name">AKVILA, Home for Social Therapy</div><a class="entry-url" href="https://www.akvila.lt">https://www.akvila.lt</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABMklEQVRYhdWWMRKDMAwExbhwyRP8lDwNnsZT/ARKFwyXkwRJGHqsaIYEL42MfMeJ/HtBq4lMiT97suXakW+8hjbWif8vSYpySJ6Bga1LagV7Wgu2AHwEEiofBudSZslV7vt6nvt8MesB3G9zD8NdLzyHnPty09Hz/Ci+RtXFrcJw7XfgNfMALMNmG4nIhUud9KR6Abn05aoXlvpesYYp5DUi59L2oW1b/6eOOvFcRX0GLhWokGNyzv3QzILvOezIPQ+gFW/0Z+6ROO1l10mbUW806o9v9+H59BNxc7GbeNxL7QX1tcupnnDcRt3s9WLRnDBfvoOPc88Dpl/mFrGbkPzIe3M69PL1mb7cpqp5LzSv9BnPLdMlPz/PxfMn9ANHfwYkJD/0UsXtZQSueTUK/+96A4Ze/mbYBnN6AAAAAElFTkSuQmCC" alt="QR-Code für AKVILA"></li></ul></section>
+      <section class="country"><h2>Polen</h2><ul class="entry-list"><li class="entry"><div><div class="entry-name">Wspólnota w Wójtówce</div><a class="entry-url" href="https://camphillfoundation.org/international-communities/">https://camphillfoundation.org/international-communities/</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABsElEQVRYhdWWza2DQAyEjTjskRK2E2gMKZFobOmEEjhyQPjN2CRK7s+WslKi5eMQZzz+Efn1ozhN5qrXoCqjPPC8/yPHp6z7LHyqdpMuhT+0NJF6jIKXFyNbs/iqZy3XcErRPZO34SkyMROJnPrrou6m7jsvgZxBINuWcn59+jCS2xl0A+oVyf86gRw/X1SXDS+XzW7+Mpw/5ZiY7QslbWYvrk8wh9XoMsYFszco4vFEcyBe6tFBfwSFptIyOHTQ1UNBEiY4/pAM7i3MTce+jfqa9gSOeNDCUNeTPqt3lpffQrn/e9QXVdf1buMJHPpjNJr0Vl8qYwZHynlBt9Zb/8P1j+aQ4BKfy3J0qu8+E8ul3/B0VkZRFXV96x/OZ/rN5rL57aV/NGc/mfTEVDT9sRS4/uEcxr6kV1azN5W7f0ZzZNvmI1on875s2lI4tgAosFmlFTO77yfBnKej1bgPcOXiMpLAbf9B3jmibFLW954QyrnvNQ6NifuPFdmVwrlX899z9fnMSw73+oLfUNyax3ubj/cm1CSD2z5v9fVAaaGf5HD3m+23JsFcZczgv33+AHSTvRXzws3gAAAAAElFTkSuQmCC" alt="QR-Code für Wspólnota w Wójtówce"></li></ul></section>
+      <section class="country"><h2>Russland</h2><ul class="entry-list">
+        <li class="entry"><div><div class="entry-name">Camphill Svetlana</div><a class="entry-url" href="https://en.wikipedia.org/wiki/Camphill_Movement">https://en.wikipedia.org/wiki/Camphill_Movement</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABdUlEQVRYhdWWQY7DIAxFHWXBkiNwk+ZiVZNoLkZvwhFYskD1/A9JNZ2uE7eWQslLFxb+/ljk20MRD5lEblhC9XzPJ/CC5+Z01BUgXX0UGU150IwUNYmPTqu/q57HkU+aM/bLZ3CRGlC09/wNeKtXrDJoxP5fHY/jTbfgYc2Tg05e9GzA90CpIvrorY/P5kxrVmWe2P/ki0v1HC5+oZ/MeQJXLXu9bHgJm58o9TPD63pY8R7wGeh529UzOH92X2VPXZyKJXdp1IV9xMsn6LNeZlxbQM9Es8Y9z+N5HiBeaYt46KRacsaNS793+Eex5Dy0FTVKvJwR9xKe/n8k513zQA6UCDUDc2352PHqIZ2x9/VVLlu9DDn7Wnd/Uw4IJ/AWLiIf+Hy6Ur6mnAmyXkxR+1z01K0FL72Pei9jHhjKnznqSN7m1Ujd7vX6BM55HuezdMMz591vnS782PvoaC5tDkGh8jYcJVPedRtHngrnxqkEseTfHb8aP8wA2hw1+AAAAABJRU5ErkJggg==" alt="QR-Code für Camphill Svetlana"></li>
+        <li class="entry"><div><div class="entry-name">Camphill Chistye Klyuchi</div><a class="entry-url" href="https://web.archive.org">https://web.archive.org</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABM0lEQVRYhdWXQa7DIAxEB7FgmSPkKDlaOFqOwhG6ZIHijk2S9rd/HVxLqOK1C4dhJi7w6yVaFVhjnbc92vYxkDeuUKeyIonsUVFyybkN7B+xYkF8zNIc8EmER7m555izXr7dAe/6SpY6C750d8O7X3gP//XR/fwoHiPXd6y44dpv4MotFYRmD+KR835u+rlGKdgxFYzl3C6BSlvuWUXT3RsXjZckvW0ebHn5ZRiXI/e60JePXHFev2U3h6Su+3UPB3Fg0XnADIJ46euOa/9UemXO0DgM6nMeGMQZdzaftMMXuQEOea/zPYKP8PbDredqx1tsTsh/3oO38z4PcG5Rm1ifl1988bd5r+t+5sxYnk1Vnfd8cyv9av2Yn+/mOP7vqJGl8QdwyQ+/FFhIwx7EI//tegIw/Q2FDAtL/QAAAABJRU5ErkJggg==" alt="QR-Code für Chistye Klyuchi"></li>
+        <li class="entry"><div><div class="entry-name">Tourmaline</div><a class="entry-url" href="https://turmaline.ru">https://turmaline.ru</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABPUlEQVRYhdWWQXKDMBAEh9JBRz+Bp/A09DQ9RU/gyIFiM7MiiR3njNZbZQo3HAZJM7vAp5epdswFuQHJ/24D+cHftD+sCJxJKIfk2WyifuMLCzlvAnDq1A2ic2BN+1zfv+t+3ve3rTyHC972PQzvfiHv+v/46H7+U4mLev4TLEG49E66UHqdDv+QiBy58UK/AHM1cozl8gt3ei62z77la7ItINcyQs8OZiIXtl1+GcUpryqfixuZz8vlo2CcsuuZjceP0u33HA7kXEaPO/ULN8gWkTOWqd8K9S+nGycP5Z4pbGfKZ1nENzoe7/XgWmpuYdgYQvKr39Em6iNJgfPcB2/nfR7weY/GcZ05JL/mPZ9L7SlnBvPifVYHMjRvPWdY68v8fD9Hnz+hnGE+myEk//aL54wPVK8+isI/u74ARLEyTpJDcj0AAAAASUVORK5CYII=" alt="QR-Code für Tourmaline"></li>
+      </ul></section>
+    </main>
+    <footer class="page-footer"><span>Stand: 1. September 2026</span><span>Seite 5 von 7</span></footer>
+  </section>
 
-      // Östlich von Deutschland
-      ["Estland", "Estland"],
-      ["Türkei", "Türkei"],
-      ["Tschechien", "Tschechien"],
-      ["Ungarn", "Ungarn"],
-      ["Lettland", "Lettland"],
-      ["Litauen", "Litauen"],
-      ["Polen", "Polen"],
-      ["Russland", "Russland"],
+  <!-- Übersee -->
+  <section class="print-page">
+    <header><div class="small-page-header">Sozialpraktikum · 11. Klasse · Camphill-Einrichtungen</div></header>
+    <main class="page-content">
+      <section class="country"><h2>Brasilien</h2><ul class="entry-list"><li class="entry"><div><div class="entry-name">Instituto Compassos <span class="practice-note">2024</span></div><a class="entry-url" href="https://instituto-compassos.org/">https://instituto-compassos.org/</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABL0lEQVRYhdWXPZKDMAyFH0PhkiP4KDmafTSO4iOkpGDQ6kl4dxNSY0UzzMBH8yRZPwa+3YS2IcueGjDb53Mg3/WZtkWZ/jtmohSSJ5FJ9dcdeVVOR8bzpRWN44ro3PQDn/26l5/5LbO0B655j8K9Xsg35v2tju7np2kYWReXthKGU+8k0tyR3RyJyHk+gYW84eDLWD57f0ZB6jot79E49R/Jflrec/3rzyM4y4RzrZpOeebq9RKNM5aqv4Hz9//5HMTtU62yhi3bPb/BuI5dZrqwz6h+6edhIJfffkLBu/W9aNxtEbG9xYIakptm3/d8T6ivc/Bu7vuA1q8VjulMIbnvezpMUs97DG6Chfuen8+oXN8fZOXdr5s5zvuObNkDipC81wv3gfVyr4zDv9t+APB4TOog/GGTAAAAAElFTkSuQmCC" alt="QR-Code für Instituto Compassos"></li></ul></section>
+      <section class="country"><h2>USA</h2><ul class="entry-list"><li class="entry"><div><div class="entry-name">Plowshare Farm <span class="practice-note">2025</span></div><a class="entry-url" href="https://camphill.org/communities/plowshare-farm/">https://camphill.org/communities/plowshare-farm/</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABgUlEQVRYhdWXTY6DMAyFH8oiyxwhNykXQ/1RL0ZvkiOwzCLije3QmU734DYSInywePKzHQN8+6KsFWj5toxkS/q8HMCrXOc4N1zIiinNQHDlmctZ7qoT+Zoe5HE8sslNtX0GxwgM3S93bn4xcFWr3n3cj1veSp6oX7FM//PZgfc1sgwkcnur4uO5ypISCqqu5vtyiqUdwZHJGyU+q4jiXYvY/PLikjpa16JNU+fCR+3x8eIVLYnOUJRLTQ3scdubWwlpaKihAU6R8OQ1I1315VWaSuavX15c92v3SwQGlQscwtUvWl+Vcwcn+8aPazgu1cpb9pMaCFduPW0MZVjQkyhvPu7OE6uEZk02hwh/6vHh0GNm1LyV0Ehd16dfXtzqGjanWR3lbW7cl29NhcUOvQkD6co1ZWQegILY5yL71IvbvKSt7dbngT+/duZ9XtW8nWs37RN4KDa0Tv1A9uetx806zavO/Tjsf0r6G2edV9dYXHnPW5W4WM8ftv7mxb97/QCJTrbUqqXaYQAAAABJRU5ErkJggg==" alt="QR-Code für Plowshare Farm"></li></ul></section>
+      <section class="country"><h2>Südafrika</h2><ul class="entry-list">
+        <li class="entry"><div><div class="entry-name">Camphill Farm Community Hermanus</div><a class="entry-url" href="https://farm.camphill-hermanus.org.za">https://farm.camphill-hermanus.org.za</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABeklEQVRYhdWXTa7DIAyEXWXBMkfgJuViUdPqXYzehCOwZIHqNzYQvZ91cIvUn3zKYsR4jCH69MVYLwryNzDXVZ7zBF7wuTle+L5Gl7Y1Ei2m3HO+QWK6ZBL+ZJ7HoSdhf4q/vwcnqh6mOX4Drn7FSjvDKvrj43lc6xbcP3IQv37VswEfy2uYtn85ns1F1o5AQye8+8pXl+oMLh49SuiimJ+l+WXHl7yXIP2EOdHKZeyQDecksrTPoH521FLfz7M5Nz2QEtFPiByTLYcsyRHnIBniMnJtwwvJ2Tf6zJ6HzvM52ofoebUaRt1WW77IniDX+IFf10OnFVdZ8oVzR/zyw6+TuZ47ml+HTOEQ7nqMuFeJmmt5vgy/zDj84ijzicwGsm9tbjyZ6xr5TRtdfp6/BrzPAyS5xl7JXKSvWnGtn2NOq+LXHN7m1TYPQBQfdWvK6Viu32tMeWTJNUmv04NoAie9T+m9hlAnsc8DVrzXbRuJ0OdHf7Pin72+AcITbFxjuu41AAAAAElFTkSuQmCC" alt="QR-Code für Camphill Farm Community Hermanus"></li>
+        <li class="entry"><div><div class="entry-name">Camphill School Hermanus</div><a class="entry-url" href="https://camphillschool.org.za">https://camphillschool.org.za</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLElEQVRYhdWXuxHDIBBElyEgpARKoTRRmkqhBIUKGJ3vg2zPKDdnZoThOTlrbxcM/PsgGScvIk9X1O2xkA9+wpn7htTrFQUllzwRBau/7IhHoeGAZyJ5lZd3jtJG6vDATV9q3IcVD93dcPML96Ho/vDR7/kcRUxcr0esuOFSb+CHdac9DP0hHjkkXhL1TfsTuWMtly2XyeXxDJmi5bMzrjGoBYv29PbLKi7vM9AhjPXlRZt+ccbVJpyJvDXd7/5cxMess4G/pJG/dPfFYbpvorsa+c7tdVy2cs7upMFyt6UrbiNrzkg+F4JLrgfcqTEo593HL4u43QegxoHWGX3yed/jtuxVdafp66Xc9J0BeHjmljNi8LSUY/7f4UXV+x5c8ukX/djxuK+64f89XqrvQEPcepjhAAAAAElFTkSuQmCC" alt="QR-Code für Camphill School Hermanus"></li>
+        <li class="entry"><div><div class="entry-name">Camphill Village West Coast</div><a class="entry-url" href="https://www.camphill.org.za">https://www.camphill.org.za</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABM0lEQVRYhdWXQQ6DMAwEF3HIsU/gKTyNPK1PyRN65BDh7jrQinInriUEjDi4tnfjAv8epliBZbSCbfTXV0deeQ3royy8zxiFUkiezAbmj3GdjHyyGoA/zFjKZ3iOKSOp7/15669la/X86XsY3vTCOWTfnxcd3c/3YBmli0uE4cp34JU98+o/JCKvqcxIVtwPxdGX83V2f1ZNPUbvezRushcphGnPnv9HL124bHn3vYK90RG5/HBLrylzAHCaw05cNZXvNYv59DccZ9oA68lhnIfKD459oBOn3Wk/8cIqcgUC8hZMW4azScQIyT3nY2/RnpBP5+DtvO0D/sDzV3l+9RKKt32v4JDLMQ99ue9RXk/7+l5EbtBBzFh+9ue7Ofb/OxIy/VkfROQnvTRjvOooAP/veAMh9zptytEtXQAAAABJRU5ErkJggg==" alt="QR-Code für Camphill Village West Coast"></li>
+      </ul></section>
+      <section class="country"><h2>Schweiz</h2><ul class="entry-list">
+        <li class="entry"><div><div class="entry-name">Camphill Oberdorf <span class="practice-note">2025</span><span class="practice-note">2026</span></div><a class="entry-url" href="https://www.vstmichael.ch/erwachsene/oberdorf">https://www.vstmichael.ch/erwachsene/oberdorf</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABgElEQVRYhdWXTY7DIAyFHWWRJUfgJuViVZpqLkZvwhFYZoHqec9J/zTr4ClSK/jYWH5+xhH59qVYd0kiM/dL4Ll24Ct+86Qjz9iHLDK68qh1lqRlUJ3KOdxU+3HEUy6a17j8Dy7SIkSbtPlz0ys3QZyKvH3qeBy3ugWP15qo10c9O/DHIhc5//Fxb86wLqoNsiGHYz1NpfXgU+GfcptwHXTd9PLiWtja0qj3QF+/8uPE19jCFckrQo7rPW9Hc1jX4inmo2eu3Dhiq0IfLZtet6eOXpwPDiw0qG71/IjzYG5tNNG/PLJumyff+ht9jTiRpEecbhx6IWXIW7V3B5e7r4/lq9Wt0L+ZffUk0eJx4xHyTHksHIniT027Xn4c/R+FrNb/LxRNawe+mQahLGLv3fD+/jrw1zzAnc1Fb/Xcn9u8hPop5vEmwyp9+Dav0r951+t9jnXiqNuZTc76ifrzvb8xTogmPbjY/Kx61Yy6Dc85wYnvdSuyfdfwERZP/t3rF+I4ntbESod0AAAAAElFTkSuQmCC" alt="QR-Code für Camphill Oberdorf"></li>
+        <li class="entry"><div><div class="entry-name">Stiftung Humanus-Haus <span class="practice-note">2025</span><span class="practice-note">2026</span></div><a class="entry-url" href="https://www.humanushaus.ch">https://www.humanushaus.ch</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABMElEQVRYhdWWMbKDMAxExbhwmSNwFI6Gj8ZRfARKFwz7d20n80lSY0UzgP2qRbLkNfv1gKLYnMzm7Qx1uw/kB5+pPJBQZlgQii55BCbqx1H171w44NTJxWbeudkayrf/up+3+ubVYl7Oj7q74a1fyJv+tz66n78iqC++hBMuvZNekj4d9Uc8covZzrhzHnIBchvLA/KiOcO5Zwua4N0h15YfzUNy6e/9MogzjZTHfFLhpkKn3i/OuLan9KvcuJzPIbymsbTj97++Hrn6BZoz1I/0mttjOO81lD5YFOmobe2Nt2A+q2/RATCXvGpW3a37q3S9B+/mzQ/Qt6BcdLrjT78XPs/DSC6fjOo/ez598lwvOObT1ot/vp9b95/SqTkDc8mf/bIC6pkH8OZXnfDfjj8C6SqJOfhLegAAAABJRU5ErkJggg==" alt="QR-Code für Humanus-Haus"></li>
+      </ul></section>
+      <section class="country"><h2>Deutschland</h2><ul class="entry-list">
+        <li class="entry"><div><div class="entry-name">Camphill Dorfgemeinschaft Hausenhof</div><a class="entry-url" href="https://www.hausenhof.de">https://www.hausenhof.de</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABK0lEQVRYhdWXMXLDMAwEoWHBMk/gU/g08Wl6ip6gUoVGyB3AeMwktQhjxja9o+JM8I6wyKeXsk4pTfIud7Kvx0R+4bWcX9oI7kSUQ/KsukC/4oEKjkUADp1cSHQusiZl3+dz7+++iu/nr76H4e4X8HSW7Y+PnuevSuf/wRKEU+/CN5N+2Q+JyHEs6y3wi+RdyGU6h9ajWO6pCz4i8rMo9SMPi+1n98ssbjlDnVywWr/XonHIhuKibPfbOZzJlfkseehvPO5F2XW5zDiTebX7gka2/vqT0bgX/IKcQeDwFITk1uo+722cE9pwDz7OfR7oC9eZQ3Kf9/a1u+V1HuZybfSLzZ9veRiQK7cS+ynrOD8/zqX/38FnRT7r0Pc4/McvnKM2M/Looyj8s+sbfVw0W06/Z8sAAAAASUVORK5CYII=" alt="QR-Code für Hausenhof"></li>
+        <li class="entry"><div><div class="entry-name">Camphill Dorfgemeinschaft Hermannsberg</div><a class="entry-url" href="https://www.hermannsberg.de">https://www.hermannsberg.de</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABMElEQVRYhdWWwQ3DIAxFHXHIMSMwCqOF0ToKI+TIAfH7DbRNm3twLUUq7+Ta/t8W+feARhbZHZJU157HRF74LXlLu6xAdYpWk5zPhfmLyxLEHR7FAN8ALaV5Lj7Kqn2fz3t/EXUAr303w7teOIcu+8dFR/fzESyjSKgXWzHDNd+Fn9bzsZT2Ryxync+6otcZ5DKfq8/Q91LQhCnkwyDXltOak/5o9Rx6mcV1/NDT6xHfe80U5+4N7DuiGg5O8zmJN98DbZn3wCvhwyivYwIC80f8+PYczvHTzN79LSIGeY+tPdWfqR6TvOWs+7fvu8PHrz14O+/3AO8WLWzL86QXS/x17+FnHqbz7Pv9idMeMccT10dqd8v+dT/fz2Xcn2X4DMQk/+iFd5QKGb86ssH/O545OD+H5LMI9QAAAABJRU5ErkJggg==" alt="QR-Code für Hermannsberg"></li>
+        <li class="entry"><div><div class="entry-name">Camphill Dorfgemeinschaft Lehenhof</div><a class="entry-url" href="https://www.lehenhof.de">https://www.lehenhof.de</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLUlEQVRYhdWXOw6EMAxEB6VIuUfIUTgaORpH4QiUFIhZf5KVVmxNvJYC4lUTO+MY4N+DGgewJG64kn3uA/kpazpe2yLvGUlRDskzOYl+JHlcaS88A/AXKalcEZ2jVOTtx76e515fVj2A163uYbj7Rc5hOsp689HzvIWkUdZ1aythuOqdZFU7AKdtJCKHyW6fFI6xvOmUvpddsBh5D8jPLHZWwSJ71nx++vMYrjYRhxTqvWaFdr9E47Qqm+zN6t7P5yD+6c/s0esbjEPaoPcZzKKftfftQTxrWXcsKpjWWICA3MPLPdtGEJKbZp1boAmXOaF+3YOPc58H0OY91dn8Eo37vCf5bHbp+kdz+NxeGJzzMIOrcYZytP8dnaO0zxAhefdLbRcK+e2jKPy/4w3HvBu9eAb84QAAAABJRU5ErkJggg==" alt="QR-Code für Lehenhof"></li>
+        <li class="entry"><div><div class="entry-name">Camphill Dorfgemeinschaft Sellen e.V.</div><a class="entry-url" href="https://www.camphill-steinfurt.de">https://www.camphill-steinfurt.de</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABhUlEQVRYhdWWQa7CMAxEXXWRZY6Qm9CLISjiYuEmOUKWWUSdP05KAbFu/YnU0r6yGGXsiUV+fYFrkYlPHhKq1/d8AC+8Lg4jZlVx9lFkNOUB+SIT0pAnh9k/gOM49SSRqVDPv+AiNQDRodrz5lescgW+fdyPt7olDzf6lc6f9WzAnyssKvH81cdHc5XFLaNOxBLu+eRSPYKXwB9Hq0S35g6UZ/9acZFrmVqeuDRuVllxCXrrOaP1vKz7tjcv6hj1pKZtXvfKkFPnUHqeaA893vyy4GvhtJxRdFp17s1pj59d1P4F80TDvlpy1o+nX2tfz7LpN+LqkerUonb6UsKW/3ty5olf9PPso56/S28sQz7mAXFMA+iXbH6ZcWH+85aEOkPbt3Vu3Jf3puH5i5ZvMryfvwa8zwOtr6POzw+86taCt3lJ2Ec61PNMHIocw9u8Sim3zP9oyIVqz7fs1TxBNuex9TX63Piufz8ubX5G79/ra04z4r1umSca95wbp496Pp7/9voD5bp8sbUtRw0AAAAASUVORK5CYII=" alt="QR-Code für Sellen"></li>
+      </ul></section>
+    </main>
+    <footer class="page-footer"><span>Stand: 1. September 2026</span><span>Seite 6 von 7</span></footer>
+  </section>
 
-      // Übersee
-      ["USA", "USA"],
-      ["Südafrika", "Südafrika"],
-
-      // Schweiz und Deutschland
-      ["Schweiz", "Schweiz"],
-      ["Deutschland", "Deutschland"],
-    ].map(([sourceName, displayName]) => {
-      const country = allCountries.find(({ name }) => name === sourceName);
-      if (sourceName === "Irland") {
-        return {
-          name: displayName,
-          entries: [],
-          note: "Irische Camphills können derzeit leider keine internationalen Freiwilligen aufnehmen.",
-        };
-      }
-      if (sourceName === "Norwegen") {
-        return {
-          ...country,
-          name: displayName,
-          note: "Für einen Aufenthalt sind Norwegischkenntnisse erforderlich.",
-        };
-      }
-      if (sourceName === "Türkei") {
-        return {
-          name: displayName,
-          entries: [["Kindergarten Her Çocuk Bir Evren", "https://www.hercocukbirevren.com"]],
-        };
-      }
-      if (sourceName === "USA") {
-        return {
-          ...country,
-          name: displayName,
-          entries: country.entries.filter(([name]) => name === "Plowshare Farm"),
-        };
-      }
-      if (sourceName === "Frankreich") {
-        return {
-          ...country,
-          name: displayName,
-          note: "Für einen Aufenthalt sind gute Französischkenntnisse erforderlich.",
-        };
-      }
-      if (sourceName === "Vereinigtes Königreich - England") {
-        return {
-          ...country,
-          name: displayName,
-          entries: [],
-          note: "Wir prüfen derzeit, welche Camphills in England und Wales Schüler*innen aufnehmen.",
-        };
-      }
-      return country ? { ...country, name: displayName } : { name: displayName, entries: [] };
-    });
-
-    const placements2026 = new Set([
-      "Corbenic Camphill Community",
-      "Community Mourne Grange",
-      "Vidaråsen Landsby",
-      "Kindergarten Her Çocuk Bir Evren",
-      "Camphill Häggatorp",
-      "Garvald Home Farm",
-      "Garvald West Linton",
-      "Pahkla Camphilli Küla",
-      "Camphill Oberdorf",
-      "Stiftung Humanus-Haus",
-      "Newton Dee Village",
-    ]);
-
-    const placements2025 = new Set([
-      "Newton Dee Village",
-      "Vallersund Gård",
-      "Stiftung Humanus-Haus",
-      "Camphill Oberdorf",
-      "Kindergarten Her Çocuk Bir Evren",
-      "Plowshare Farm",
-      "Pahkla Camphilli Küla",
-    ]);
-
-    function qrUrl(url) {
-      return "https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=8&data=" + encodeURIComponent(url);
-    }
-
-    function createPage(root, firstPage) {
-      const page = document.createElement("section");
-      page.className = "print-page";
-      page.innerHTML = firstPage
-        ? `
-          <header>
-            <div>
-              <h1>Sozialpraktikum der 11. Klasse</h1>
-              <p class="subtitle">Camphill-Einrichtungen</p>
-            </div>
-            <img src="welle-oben.png" class="school-logo" alt="">
-          </header>
-          <div class="page-content"></div>
-          <footer class="page-footer"></footer>
-        `
-        : `
-          <div class="small-page-header">Sozialpraktikum · 11. Klasse · Camphill-Einrichtungen</div>
-          <div class="page-content"></div>
-          <footer class="page-footer"></footer>
-        `;
-      root.appendChild(page);
-      return page.querySelector(".page-content");
-    }
-
-    function createCountryHeading(name) {
-      const heading = document.createElement("h2");
-      heading.textContent = name;
-      return heading;
-    }
-
-    function createEntry(name, url) {
-      const item = document.createElement("li");
-      item.className = "entry";
-      item.innerHTML = `
-        <div>
-          <div class="entry-name">${name}${placements2025.has(name) ? '<span class="practice-note">2025</span>' : ""}${placements2026.has(name) ? '<span class="practice-note">2026</span>' : ""}</div>
-          <a class="entry-url" href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>
-        </div>
-        <img class="qr" src="${qrUrl(url)}" alt="QR-Code zu ${name}">
-      `;
-      return item;
-    }
-
-    function render() {
-      const root = document.getElementById("content");
-      root.innerHTML = "";
-      let pageContent = createPage(root, true);
-
-      selectedCountries.forEach((country) => {
-        let heading = createCountryHeading(country.name);
-        let list = document.createElement("ul");
-        list.className = "entry-list";
-        pageContent.append(heading);
-        let note;
-        if (country.note) {
-          note = document.createElement("p");
-          note.className = "country-note";
-          note.textContent = country.note;
-          pageContent.append(note);
-        }
-        pageContent.append(list);
-
-        country.entries.forEach(([name, url]) => {
-          const item = createEntry(name, url);
-          list.appendChild(item);
-
-          if (pageContent.scrollHeight > pageContent.clientHeight) {
-            item.remove();
-            if (list.children.length === 0) {
-              heading.remove();
-              note?.remove();
-              list.remove();
-            }
-
-            pageContent = createPage(root, false);
-            heading = createCountryHeading(country.name);
-            list = document.createElement("ul");
-            list.className = "entry-list";
-            pageContent.append(heading);
-            if (country.note) {
-              note = document.createElement("p");
-              note.className = "country-note";
-              note.textContent = country.note;
-              pageContent.append(note);
-            }
-            pageContent.append(list);
-            list.appendChild(item);
-          }
-        });
-      });
-
-      const pages = root.querySelectorAll(".print-page");
-      pages.forEach((page, index) => {
-        page.querySelector(".page-footer").innerHTML = `
-          <span>Stand: 1. September 2026</span>
-          <span>Seite ${index + 1} von ${pages.length}</span>
-        `;
-      });
-    }
-
-    if (document.fonts) {
-      document.fonts.ready.then(render);
-    } else {
-      render();
-    }
-  </script>
+  <section class="print-page">
+    <header><div class="small-page-header">Sozialpraktikum · 11. Klasse · Camphill-Einrichtungen</div></header>
+    <main class="page-content">
+      <section class="country"><h2>Deutschland</h2><ul class="entry-list">
+        <li class="entry"><div><div class="entry-name">Camphill Lebensgemeinschaft Königsmühle</div><a class="entry-url" href="https://www.camphill-rheinland-pfalz.de">https://www.camphill-rheinland-pfalz.de</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABiklEQVRYhdWWTa6DMAyEXbHIkiPkJs3FUAH1YvQmOUKWWUTMG4fQn/fW4NdIlcKnLqyMxx6Rbz/gWSWI3PReev1OJ/DM382h4+fiovSLSGfKPdJNAiLvDlP/AM7jrCeOKWQZ/gcXKX6S4KiXOa96LUUuoFTDLx2P47Vvyf2cgovDZz8b8P34qQfr/OPjs7mWNdLQlI3a3dPVxXIKj0KpoNcA3IHc9DLiwgLHHDrMgIvdSyojjghFiK2f1+e7Hcsd34d6dTpSM03MISemHFWv4lfVC3g0vcw4C1w531jsouj6qv9gTgO5RbQezhPhsC+WXH3EPSh+RtVrr9OKZy/9rK0sm17Ivu2jg3mVimfSlUMfid/qseK+9Fy9nfpaPbXrZcal0z2ovuaT1XdrufFYvpmm7p3at5f3/WvA9zygorVctPWzEa95SXPayjzgGZvyW446kte8WnMR/zOqXq1vLflrtnCeINnz6mvN87wVOYNLzc/qX+aQ8ZnTrHjrW2x54J7CZz+fzr/7/ACmCqi72w6lzwAAAABJRU5ErkJggg==" alt="QR-Code für Königsmühle"></li>
+        <li class="entry"><div><div class="entry-name">Camphill Schulgemeinschaft Bruckfelden</div><a class="entry-url" href="https://www.camphill-bruckfelden.de">https://www.camphill-bruckfelden.de</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABh0lEQVRYhdWXS46DMBBEK2LhpY/gm8QXQ4QoFyM38RFYemHRU20DSWbW0BNLkcgTi5KrPwXw7Ud4FkQ+eUEoXv/PJ/DM3+Ckk5HvJPgJ6Ex5kHlAlHSZo5PRP0XO49STmrb/wYESRCb1y5xXv6aCmwjQ//LxOF7rljzc6VfqP+vZgG8nLF51/unjs7nK4pVRp0w5POarS+UM7pKwdXWegH30EMnNLytOiX6p88RPkrrdKjOeiJxwzrR6Xrb7PJizdb3k2OlIzWHkhQksOWX5sc6TOWoPPXcfbXgOHWuG9XOT6td11Xk01x13z7GEuoR7xIxiyVk689DmG9SvTacV596R+0sb7zBs++hwzlVX+zdrHyHsemw4cMlo+SRh98uMs20GnTObZg0IJ/BWLIwgUvcvLu/714BveaDmk5aL6qtWvOYltnTNA6God68cdSRveRU1D6ioHNb6seSTPkctoqtbv2tsuWhf616mfe86j+No31OaB1y67TnNiq91u+aBhy5hWPLvPj/Lsqr3LM2y6AAAAABJRU5ErkJggg==" alt="QR-Code für Bruckfelden"></li>
+        <li class="entry"><div><div class="entry-name">Camphill Schulgemeinschaft Föhrenbühl</div><a class="entry-url" href="https://camphill-schulgemeinschaften.de">https://camphill-schulgemeinschaften.de</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABg0lEQVRYhdWXQY7CMAxFf9VFlj1CbkIuhijVXKzcJEfIMouoHn+nzIBm3XqIhBQemy9/f8cAn35Ez4YE3IAgbeL3cgKv+rkFGfXrqvdpBUZXHqXckCSDYq/TQ+Q8rnryXPR+/x8caPGORL/cufm1NgwirNu7j8dx61vlcSkp5Ot7Pzvw51GrqPNPjs/mlDWLtGg5mssl5HYKz2pPEF4TayN198uJ20yraZRF2DryqL0+XlxYpiCSrZ/HMsizbkdz82vMUFka4kuvlRvnPGGR4sZ58uuXF9dqqUC9zPRr5i97jo7m6lFNpgesj85YT47Ip1frs9j7iz1Tbpy5Vp287rmOP3k/kle0aWOD6Fy1OV9j71s3bs/MqLleEb9Uc/fLjUe+gzpndEWr7GcL1vHcTlApUtQvWwtcOVtG9wHLdY22F/W+deK2LzHS27QG6qwve9SRvO+r3Iuw+wW485W9avONb2Lx55br/TScwdH/T+WBKq46W7Ir7337zDVnb4Qn/+zzDcgp2ATZFjgjAAAAAElFTkSuQmCC" alt="QR-Code für Föhrenbühl"></li>
+        <li class="entry"><div><div class="entry-name">Camphill Schulgemeinschaft und Hofgut Brachenreuthe</div><a class="entry-url" href="https://www.brachenreuthe.de">https://www.brachenreuthe.de</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABKElEQVRYhdWXMY6FMAxEJ6Kg/EfgKByNHI2j/COkTIGYHTubvyt+T4wlUPJEMeCMbYCnBy0qlmybc/JtGcgPXam+mFkXYjI0h+QzmaSfB5xrEYCbTnIPz4Ft4lt5H89bft8b9MD5lfcwvPlFfKrL/uWj+/lTwvQmu5n0dPiLhOQVKyC/yNc7xTGWm1+8PssvK5vgEpB7WZ5lZ61X+57dL4M49BkTi+lsic7dL7G4tY/T9FvB4d85HMZ/+wVVZ7pBSkQOT7n33115Z+51exj3/LJHPoCAvIVsQusjaG8TkLtm77+wfifjXPrgzbzNAy6t65xD8uYX2bnnnf99PY57wZn8QJa4nNnqjAnfLvPz3Rxt/rQxYFV9JhGSf/xC+7/QAMOLj4LwZ8cPtKUfnI4QHFQAAAAASUVORK5CYII=" alt="QR-Code für Brachenreuthe"></li>
+        <li class="entry"><div><div class="entry-name">Lebensgemeinschaft Alt-Schönow</div><a class="entry-url" href="https://www.camphill-alt-schoenow.de">https://www.camphill-alt-schoenow.de</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABi0lEQVRYhdWXQa6DMAxEB7HIkiPkJj8XQwXUi6U3yRGyZIHwHyeU3999cBupKn10YXlmEgf49iVcO7D5fYgi26C/8wV85efm4oZJBBiHCPSm3Eu+8Zt1iksYHiLXcSebXySyts/gCGqNAL/Z86KX9DKrVO86tuPFt/SJX3JwafzvZwNeV5DUCf0zvqX4eq5lMUI9rcxc3/OPS9sVnD6RZeV+IjmQi6xnfk24JNFn3U+e1qn9seJcs4vcZzRM47D/9bMpd4k5QlDfslczgcCUC85nULvHoZcZp5F3bd/MSKeefj7rb8pXr/KEPnVZ9UJQzxhy3dYn9oTliur1rNOKrx7DsoaSa6fmXv2R9+YcU80v9WKO4J/1GHEeMzoP7MchfOpoxFH2/yPXpW/H3NiW1zDFYl72B93r+WvA1TL7MZ+wTToXHX624WVe4oGjuSZHd+rVmJd5NUoq/5lUL3wAR5kH+JL7iWRzTo20RJS58aVvDTnqfUrvNXz5N6cZ8erbWO81/q7DGiz5d69f2immHOi9mx4AAAAASUVORK5CYII=" alt="QR-Code für Alt-Schönow"></li>
+        <li class="entry"><div><div class="entry-name">Markus Gemeinschaft e.V. und Gutshof Hauteroda</div><a class="entry-url" href="https://www.markus-gemeinschaft.de">https://www.markus-gemeinschaft.de</a></div><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQMAAAAHA5RxAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABgUlEQVRYhdWXQY7DIAxFHWXBkiNwk+FiVZuoF6M34QgsWaD+sTGZtN0nniJVTd7K8v/+OETffsDnSdQCkByal/dyAq/8u7rU6AYQXXwimk15QLnyf3gKuvgHcB7nxoQVqYblf3CK/CRSNXve9cKMhcjlTx2P49237JOwlij8zc8GXE9Engo36fIxxedzKYtHaM69h3P5cbmdw2ewZXueSG9QN71suAN5yTfJk6p50o8Vl1Sbas8Z8HjT3rfj+a1GzZNRoCXnMcZaYzcvsWiPoZcVd+j5Biw+Id/Yzxg6HsvFItKmPPX7jmJVYMU5agvrhUxe7h3a67fhNTT1MzhvuXmoYdxHB3Nux1XnV/WioPVY8dD8InvaU3x7l1Bp1lye+R7kmiXkAsoJfJhlZBpr93r/GnDdB2Q/8X1/fmDLPRve9yWKs8y1lMve3vf5I7nuqzK/GHoNn1jytM215MlLnXZc5trhLvK91XkYJ/2e0vkVz2RTrr5Nf981ePPz+fy7zy/VOcjW4V1r9QAAAABJRU5ErkJggg==" alt="QR-Code für Markus Gemeinschaft"></li>
+      </ul></section>
+    </main>
+    <footer class="page-footer"><span>Stand: 1. September 2026</span><span>Seite 7 von 7</span></footer>
+  </section>
 </body>
 </html>
