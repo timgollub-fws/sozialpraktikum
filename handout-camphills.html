@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sozialpraktikum der 11. Klasse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #222;
+      --line: #c9c9c9;
+      --soft: #f3f4f2;
+      --accent: #33463a;
+      --paper: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #e9e9e9;
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 10.4pt;
+      line-height: 1.35;
+      hyphens: auto;
+    }
+
+    .print-page {
+      width: 210mm;
+      height: 297mm;
+      margin: 12mm auto;
+      padding: 15mm 18mm 14mm;
+      background: var(--paper);
+      box-shadow: 0 2mm 8mm rgba(0, 0, 0, .12);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1.5px solid var(--accent);
+      padding-bottom: 4mm;
+      margin-bottom: 5mm;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Lora", serif;
+      font-size: 21pt;
+      line-height: 1.1;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .subtitle {
+      margin: 1.5mm 0 0;
+      color: var(--ink);
+      font-size: 10.5pt;
+    }
+
+    .school-logo {
+      width: 35mm;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .small-page-header {
+      font-size: 8.5pt;
+      color: #666;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 2mm;
+      margin-bottom: 4mm;
+    }
+
+    .page-content {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      flex: 0 0 auto;
+      min-height: 6mm;
+      margin-top: 3mm;
+      padding-top: 2mm;
+      border-top: 1px solid var(--line);
+      color: #666;
+      font-size: 8.5pt;
+    }
+
+    .country {
+      break-inside: avoid;
+      margin: 0 0 6mm;
+    }
+
+    .country-head {
+      margin: 0;
+    }
+
+    h2 {
+      margin: 5mm 0 2mm;
+      font-family: "Lora", serif;
+      font-size: 12.5pt;
+      line-height: 1.2;
+      font-weight: 600;
+      color: var(--accent);
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    .country-note {
+      margin: 0 0 3mm;
+      font-size: 9.5pt;
+    }
+
+    .entry-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .entry {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 16mm;
+      gap: 4mm;
+      align-items: center;
+      padding: 2.5mm 0;
+      border-bottom: 1px solid var(--line);
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .entry-name {
+      font-weight: 700;
+    }
+
+    .practice-note {
+      display: inline;
+      margin-left: 1mm;
+      padding: .3mm 1.4mm;
+      border: 1px solid var(--accent);
+      border-radius: 2mm;
+      color: var(--accent);
+      font-size: 8pt;
+      line-height: 1.2;
+      vertical-align: middle;
+    }
+
+    .entry-url {
+      display: block;
+      margin-top: .7mm;
+      font-size: 8.5pt;
+      color: var(--ink);
+      overflow-wrap: anywhere;
+    }
+
+    .qr {
+      width: 16mm;
+      height: 16mm;
+      image-rendering: crisp-edges;
+      visibility: hidden;
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      body {
+        background: white;
+      }
+
+      .print-page {
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+        padding: 15mm 18mm 14mm;
+        box-shadow: none;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .print-page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+
+      h1 {
+        font-size: 20pt;
+      }
+
+      h2 {
+        font-size: 14pt;
+      }
+
+      .country {
+        page-break-inside: avoid;
+      }
+
+      .qr {
+        width: 16mm;
+        height: 16mm;
+        visibility: visible;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .print-page {
+        width: 100%;
+        min-height: 100vh;
+        height: auto;
+        padding: 16px;
+      }
+
+      .entry {
+        grid-template-columns: minmax(0, 1fr) 15mm;
+      }
+
+      .qr {
+        width: 15mm;
+        height: 15mm;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="content"></div>
+
+  <script>
+    const allCountries = [
+      {
+        name: "Deutschland",
+        entries: [
+          ["Camphill Dorfgemeinschaft Hausenhof", "https://www.hausenhof.de"],
+          ["Camphill Dorfgemeinschaft Hermannsberg", "https://www.hermannsberg.de"],
+          ["Camphill Dorfgemeinschaft Lehenhof", "https://www.lehenhof.de"],
+          ["Camphill Dorfgemeinschaft Sellen e.V.", "https://www.camphill-steinfurt.de"],
+          ["Camphill Lebensgemeinschaft Königsmühle", "https://www.camphill-rheinland-pfalz.de"],
+          ["Camphill Schulgemeinschaft Bruckfelden", "https://www.camphill-bruckfelden.de"],
+          ["Camphill Schulgemeinschaft Föhrenbühl", "https://camphill-schulgemeinschaften.de"],
+          ["Camphill Schulgemeinschaft und Hofgut Brachenreuthe", "https://www.brachenreuthe.de"],
+          ["Lebensgemeinschaft Alt-Schönow", "https://www.camphill-alt-schoenow.de"],
+          ["Markus Gemeinschaft e.V. und Gutshof Hauteroda", "https://www.markus-gemeinschaft.de"]
+        ]
+      },
+      {
+        name: "Österreich",
+        entries: [
+          ["Camphill Liebenfels", "https://www.camphill.at"]
+        ]
+      },
+      {
+        name: "Schweiz",
+        entries: [
+          ["Camphill Oberdorf", "https://www.vstmichael.ch/erwachsene/oberdorf"],
+          ["Stiftung Humanus-Haus", "https://www.humanushaus.ch"]
+        ]
+      },
+      {
+        name: "Irland",
+        entries: [
+          ["Camphill Ballybay", "https://www.camphill.ie"],
+          ["Camphill Ballymoney", "https://www.camphill.ie"],
+          ["The Bridge", "https://www.camphill.ie"],
+          ["Camphill Callan", "https://www.camphill.ie"],
+          ["Camphill Carrick-on-Suir", "https://www.camphill.ie"],
+          ["Journeyman Programme", "https://www.camphill.ie"],
+          ["Camphill Dingle", "https://www.camphill.ie"],
+          ["Camphill Duffcarrig", "https://www.camphill.ie"],
+          ["Camphill Dunshane", "https://www.camphill.ie"],
+          ["Camphill Grangebeg", "https://www.camphill.ie"],
+          ["Camphill Grangemockler", "https://www.camphill.ie"],
+          ["Camphill Greenacres", "https://www.camphill.ie"],
+          ["Camphill Jerpoint", "https://www.camphill.ie"],
+          ["KCAT", "https://www.camphill.ie"],
+          ["Camphill Kyle", "https://www.camphill.ie"],
+          ["Camphill Mountshannon", "https://www.camphill.ie"],
+          ["Camphill Thomastown", "https://www.camphill.ie"]
+        ]
+      },
+      {
+        name: "Vereinigtes Königreich - Schottland",
+        entries: [
+          ["Beannachar", "https://www.beannachar.co.uk"],
+          ["Blair Drummond", "https://www.camphillblairdrummond.org.uk"],
+          ["Corbenic Camphill Community", "https://www.corbeniccamphill.co.uk"],
+          ["Garvald Home Farm", "https://garvaldhomefarm.co.uk"],
+          ["Garvald West Linton", "https://garvaldwestlinton.org.uk"],
+          ["Loch Arthur", "https://www.locharthur.org.uk"],
+          ["Newton Dee Village", "https://www.newtondee.org.uk"],
+          ["Tiphereth", "https://www.tiphereth.org.uk"]
+        ]
+      },
+      {
+        name: "Vereinigtes Königreich - England",
+        entries: [
+          ["Camphill Communities East Anglia", "https://www.camphill.org.uk"],
+          ["Camphill Devon", "https://www.camphilldevon.org.uk"],
+          ["Camphill Milton Keynes", "https://www.camphillmk.co.uk"],
+          ["Cherry Orchards", "https://www.cherryorchards.co.uk"],
+          ["Esk Valley Camphill", "https://eskvalleycamphill.org"],
+          ["Gannicox Community", "https://www.camphill.org.uk"],
+          ["Hatch Camphill Community", "https://hatchcommunity.org.uk"],
+          ["Lantern Community", "https://www.lanterncommunity.org.uk"],
+          ["Orchard Leigh Camphill Community", "https://orchardleigh.org"],
+          ["Pennine Camphill Community", "https://web.archive.org"],
+          ["The Sheiling Ringwood", "https://www.thesheilingringwood.co.uk"],
+          ["Sheiling School, Thornbury", "https://www.sheilingschool.org.uk"],
+          ["Sturts Farm", "https://www.sturtsfarm.com"],
+          ["The Mount Camphill Community", "https://www.mountcamphill.org"],
+          ["William Morris House", "https://www.camphill.org.uk"]
+        ]
+      },
+      {
+        name: "Vereinigtes Königreich - Wales",
+        entries: [
+          ["Coleg Elidyr", "https://www.colegelidyr.com"],
+          ["Victoria House", "https://colegelidyr.com"],
+          ["Glasallt Fawr", "https://www.glasallt-fawr.com"]
+        ]
+      },
+      {
+        name: "Vereinigtes Königreich - Nordirland",
+        entries: [
+          ["Community Glencraig", "https://www.glencraig.org.uk"],
+          ["Community Holywood", "https://www.camphillholywood.co.uk"],
+          ["Community Mourne Grange", "https://camphillmournegrange.org/"],
+          ["Community Clanabogan", "https://www.camphillclanabogan.com"]
+        ]
+      },
+      {
+        name: "USA",
+        entries: [
+          ["Camphill Village Copake", "https://camphill.org/communities/camphill-village-copake/"],
+          ["Camphill California", "https://camphill.org/communities/camphill-california/"],
+          ["Camphill Hudson", "https://camphill.org/communities/camphill-hudson/"],
+          ["Triform Camphill", "https://camphill.org/communities/triform-camphill/"],
+          ["The Camphill School & Transition Program", "https://camphill.org/communities/the-camphill-school/"],
+          ["Heartbeet Lifesharing", "https://camphill.org/communities/heartbeet-lifesharing/"],
+          ["Camphill Minnesota", "https://camphill.org/communities/camphill-minnesota/"],
+          ["Kimberton Hills", "https://camphill.org/communities/kimberton-hills/"],
+          ["Plowshare Farm", "https://camphill.org/communities/plowshare-farm/"],
+          ["Camphill Ghent", "https://camphill.org/communities/camphill-ghent/"],
+          ["Raphael Village", "https://camphill.org/communities/raphael-village/"],
+          ["Camphill Soltane", "https://camphill.org/communities/camphill-soltane/"]
+        ]
+      },
+      {
+        name: "Kanada",
+        entries: [
+          ["Glenora Farm", "https://camphill.org/communities/glenora-farm/"],
+          ["The Cascadia Society", "https://camphill.org/communities/the-cascadia-society/"],
+          ["Camphill Ontario", "https://camphill.org/communities/camphill-ontario/"]
+        ]
+      },
+      {
+        name: "Finnland",
+        entries: [
+          ["Myllylähde yhteisö", "https://camphillfoundation.org/international-communities/"],
+          ["Sylvia-koti", "https://www.sylvia-koti.fi"],
+          ["Tapolan kyläyhteisö", "https://www.tapola-camphill.fi"],
+          ["Kaupunkikylä", "https://www.kaupunkikyla.fi"]
+        ]
+      },
+      {
+        name: "Norwegen",
+        entries: [
+          ["Hogganvik Landsby", "https://hogganvik.camphill.no"],
+          ["Jøssåsen Landsby", "https://www.jossasen.no"],
+          ["Rotvoll", "https://rotvoll.camphill.no"],
+          ["Solborg", "https://solborg.camphill.no"],
+          ["Vallersund Gård", "https://vallersund.camphill.no"],
+          ["Vidaråsen Landsby", "https://vidarasen.camphill.no"]
+        ]
+      },
+      {
+        name: "Niederlande",
+        entries: [
+          ["Christophorus", "https://www.amerpoort.nl"],
+          ["Het Maartenhuis", "https://www.maartenhuis.nl"],
+          ["De Noorderhoeve", "https://www.noorderhoeve.nl"]
+        ]
+      },
+      {
+        name: "Portugal",
+        entries: [
+          ["Casa de Santa Isabel", "https://www.casasantaisabel.org"],
+        ]
+      },
+      {
+        name: "Schweden",
+        entries: [
+          ["Camphill Häggatorp", "https://www.camphillhaggatorp.se"],
+          ["Staffansgården", "https://www.staffansgarden.com"]
+        ]
+      },
+      {
+        name: "Tschechien",
+        entries: [
+          ["Camphill České Kopisty", "https://www.camphill.cz"]
+        ]
+      },
+      {
+        name: "Dänemark",
+        entries: [
+          ["DNS - The Necessary Teacher Training College", "https://www.dns-tvind.dk", "camphill-inspiriert"]
+        ]
+      },
+      {
+        name: "Estland",
+        entries: [
+          ["Pahkla Camphilli Küla", "https://pahklack.org"]
+        ]
+      },
+      {
+        name: "Frankreich",
+        entries: [
+          ["Foyer de Vie: Le Béal", "https://www.lebeal.org"]
+        ]
+      },
+      {
+        name: "Ungarn",
+        entries: [
+          ["Camphill Magyarországi, Velem", "https://www.camphill.hu"]
+        ]
+      },
+      {
+        name: "Lettland",
+        entries: [
+          ["Camphill Village Rozkalni", "https://www.camphillrozkalni.lv"]
+        ]
+      },
+      {
+        name: "Litauen",
+        entries: [
+          ["AKVILA, Home for Social Therapy", "https://www.akvila.lt", "Affiliate"]
+        ]
+      },
+      {
+        name: "Polen",
+        entries: [
+          ["Wspólnota w Wójtówce", "https://camphillfoundation.org/international-communities/"]
+        ]
+      },
+      {
+        name: "Russland",
+        entries: [
+          ["Camphill Svetlana", "https://en.wikipedia.org/wiki/Camphill_Movement"],
+          ["Camphill Chistye Klyuchi", "https://web.archive.org"],
+          ["Tourmaline", "https://turmaline.ru", "Affiliate"]
+        ]
+      },
+      {
+        name: "Argentinien",
+        entries: [
+          ["Respirar Comunidad", "https://www.respirarcomunidad.org", "camphill-inspiriert"]
+        ]
+      },
+      {
+        name: "Kolumbien",
+        entries: [
+          ["Camphill Agualinda", "https://camphillagualinda.com"]
+        ]
+      },
+      {
+        name: "Indien",
+        entries: [
+          ["Camphill India", "https://www.friendsofcamphillindia.in"]
+        ]
+      },
+      {
+        name: "Palästina",
+        entries: [
+          ["Al-Sama Project", "https://www.facebook.com", "Camphill-Initiative"]
+        ]
+      },
+      {
+        name: "Vietnam",
+        entries: [
+          ["Tinh Truc Gia", "https://www.facebook.com"]
+        ]
+      },
+      {
+        name: "Botswana",
+        entries: [
+          ["Camphill Community Trust", "https://www.camphill.org.bw"]
+        ]
+      },
+      {
+        name: "Südafrika",
+        entries: [
+          ["Camphill Farm Community Hermanus", "https://farm.camphill-hermanus.org.za"],
+          ["Camphill School Hermanus", "https://camphillschool.org.za"],
+          ["Camphill Village West Coast", "https://www.camphill.org.za"]
+        ]
+      },
+      {
+        name: "Ruanda",
+        entries: [
+          ["Ubumwe Community Center", "https://camphillfoundation.org/international-communities/", "camphill-inspiriert"]
+        ]
+      }
+    ];
+
+    const selectedCountries = [
+      // UK und Irland
+      ["Vereinigtes Königreich - Schottland", "Schottland"],
+      ["Vereinigtes Königreich - Nordirland", "Nordirland"],
+      ["Vereinigtes Königreich - England", "England"],
+      ["Irland", "Irland"],
+
+      // Skandinavien
+      ["Schweden", "Schweden"],
+      ["Finnland", "Finnland"],
+      ["Norwegen", "Norwegen"],
+
+      // Westlich von Deutschland
+      ["Portugal", "Portugal"],
+      ["Niederlande", "Niederlande"],
+      ["Frankreich", "Frankreich"],
+
+      // Östlich von Deutschland
+      ["Estland", "Estland"],
+      ["Türkei", "Türkei"],
+      ["Tschechien", "Tschechien"],
+      ["Ungarn", "Ungarn"],
+      ["Lettland", "Lettland"],
+      ["Litauen", "Litauen"],
+      ["Polen", "Polen"],
+      ["Russland", "Russland"],
+
+      // Übersee
+      ["USA", "USA"],
+      ["Südafrika", "Südafrika"],
+
+      // Schweiz und Deutschland
+      ["Schweiz", "Schweiz"],
+      ["Deutschland", "Deutschland"],
+    ].map(([sourceName, displayName]) => {
+      const country = allCountries.find(({ name }) => name === sourceName);
+      if (sourceName === "Irland") {
+        return {
+          name: displayName,
+          entries: [],
+          note: "Irische Camphills können derzeit leider keine internationalen Freiwilligen aufnehmen.",
+        };
+      }
+      if (sourceName === "Norwegen") {
+        return {
+          ...country,
+          name: displayName,
+          note: "Für einen Aufenthalt sind Norwegischkenntnisse erforderlich.",
+        };
+      }
+      if (sourceName === "Türkei") {
+        return {
+          name: displayName,
+          entries: [["Kindergarten Her Çocuk Bir Evren", "https://www.hercocukbirevren.com"]],
+        };
+      }
+      if (sourceName === "USA") {
+        return {
+          ...country,
+          name: displayName,
+          entries: country.entries.filter(([name]) => name === "Plowshare Farm"),
+        };
+      }
+      if (sourceName === "Frankreich") {
+        return {
+          ...country,
+          name: displayName,
+          note: "Für einen Aufenthalt sind gute Französischkenntnisse erforderlich.",
+        };
+      }
+      if (sourceName === "Vereinigtes Königreich - England") {
+        return {
+          ...country,
+          name: displayName,
+          entries: [],
+          note: "Wir prüfen derzeit, welche Camphills in England und Wales Schüler*innen aufnehmen.",
+        };
+      }
+      return country ? { ...country, name: displayName } : { name: displayName, entries: [] };
+    });
+
+    const placements2026 = new Set([
+      "Corbenic Camphill Community",
+      "Community Mourne Grange",
+      "Vidaråsen Landsby",
+      "Kindergarten Her Çocuk Bir Evren",
+      "Camphill Häggatorp",
+      "Garvald Home Farm",
+      "Garvald West Linton",
+      "Pahkla Camphilli Küla",
+      "Camphill Oberdorf",
+      "Stiftung Humanus-Haus",
+      "Newton Dee Village",
+    ]);
+
+    const placements2025 = new Set([
+      "Newton Dee Village",
+      "Vallersund Gård",
+      "Stiftung Humanus-Haus",
+      "Camphill Oberdorf",
+      "Kindergarten Her Çocuk Bir Evren",
+      "Plowshare Farm",
+      "Pahkla Camphilli Küla",
+    ]);
+
+    function qrUrl(url) {
+      return "https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=8&data=" + encodeURIComponent(url);
+    }
+
+    function createPage(root, firstPage) {
+      const page = document.createElement("section");
+      page.className = "print-page";
+      page.innerHTML = firstPage
+        ? `
+          <header>
+            <div>
+              <h1>Sozialpraktikum der 11. Klasse</h1>
+              <p class="subtitle">Camphill-Einrichtungen</p>
+            </div>
+            <img src="welle-oben.png" class="school-logo" alt="">
+          </header>
+          <div class="page-content"></div>
+          <footer class="page-footer"></footer>
+        `
+        : `
+          <div class="small-page-header">Sozialpraktikum · 11. Klasse · Camphill-Einrichtungen</div>
+          <div class="page-content"></div>
+          <footer class="page-footer"></footer>
+        `;
+      root.appendChild(page);
+      return page.querySelector(".page-content");
+    }
+
+    function createCountryHeading(name) {
+      const heading = document.createElement("h2");
+      heading.textContent = name;
+      return heading;
+    }
+
+    function createEntry(name, url) {
+      const item = document.createElement("li");
+      item.className = "entry";
+      item.innerHTML = `
+        <div>
+          <div class="entry-name">${name}${placements2025.has(name) ? '<span class="practice-note">2025</span>' : ""}${placements2026.has(name) ? '<span class="practice-note">2026</span>' : ""}</div>
+          <a class="entry-url" href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>
+        </div>
+        <img class="qr" src="${qrUrl(url)}" alt="QR-Code zu ${name}">
+      `;
+      return item;
+    }
+
+    function render() {
+      const root = document.getElementById("content");
+      root.innerHTML = "";
+      let pageContent = createPage(root, true);
+
+      selectedCountries.forEach((country) => {
+        let heading = createCountryHeading(country.name);
+        let list = document.createElement("ul");
+        list.className = "entry-list";
+        pageContent.append(heading);
+        let note;
+        if (country.note) {
+          note = document.createElement("p");
+          note.className = "country-note";
+          note.textContent = country.note;
+          pageContent.append(note);
+        }
+        pageContent.append(list);
+
+        country.entries.forEach(([name, url]) => {
+          const item = createEntry(name, url);
+          list.appendChild(item);
+
+          if (pageContent.scrollHeight > pageContent.clientHeight) {
+            item.remove();
+            if (list.children.length === 0) {
+              heading.remove();
+              note?.remove();
+              list.remove();
+            }
+
+            pageContent = createPage(root, false);
+            heading = createCountryHeading(country.name);
+            list = document.createElement("ul");
+            list.className = "entry-list";
+            pageContent.append(heading);
+            if (country.note) {
+              note = document.createElement("p");
+              note.className = "country-note";
+              note.textContent = country.note;
+              pageContent.append(note);
+            }
+            pageContent.append(list);
+            list.appendChild(item);
+          }
+        });
+      });
+
+      const pages = root.querySelectorAll(".print-page");
+      pages.forEach((page, index) => {
+        page.querySelector(".page-footer").innerHTML = `
+          <span>Stand: 1. September 2026</span>
+          <span>Seite ${index + 1} von ${pages.length}</span>
+        `;
+      });
+    }
+
+    if (document.fonts) {
+      document.fonts.ready.then(render);
+    } else {
+      render();
+    }
+  </script>
+</body>
+</html>
